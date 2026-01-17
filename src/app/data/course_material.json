@@ -8,191 +8,302 @@
       },
       "descriptions": {
         "en": "Course structure and deliverables for labs 1 and 2."
-      },
-      "items": [
-        {
-          "id": "lab-01",
-          "type": "lab",
-          "titles": {
-            "en": "Lab 01 — Products, Architecture & Roles"
-          },
-          "descriptions": {
-            "en": "Pick a real product, describe its architecture, map roles and skills, and practice GitHub collaboration and peer review."
-          },
-          "values": {
-            "repo_dir": "lab-01-market-product-and-git",
-            "repo_url": "https://github.com/nurlingo/lab-01-market-product-and-git",
-            "git_ref": "db49c20",
-            "readme_path": "lab-01-market-product-and-git/README.md",
-            "lab_story_path": "lab-01-market-product-and-git/LAB_STORY.md",
-            "ta_checklist_path": "lab-01-market-product-and-git/TA_CHECKLIST.md",
-            "issue_templates_dir": "lab-01-market-product-and-git/.github/ISSUE_TEMPLATE",
-            "pr_template_path": "lab-01-market-product-and-git/.github/pull_request_template.md",
-            "workflow": "Issue -> PR -> Review",
-            "peer_review_required": "true",
-            "min_review_comments": "2"
-          },
-          "items": [
-            {
-              "id": "lab-01-setup",
-              "type": "task",
-              "titles": {
-                "en": "Setup"
-              },
-              "descriptions": {
-                "en": "Fork the repo, add a classmate as collaborator, configure Git, clone locally, and create the setup issue."
-              },
-              "values": {
-                "issue_title": "[Task] Lab 01 setup"
-              }
-            },
-            {
-              "id": "lab-01-architecture",
-              "type": "module",
-              "titles": {
-                "en": "Architecture"
-              },
-              "descriptions": {
-                "en": "Describe the product architecture (modules, data flow, deployment) and create a diagram."
-              },
-              "items": [
-                {
-                  "id": "lab-01-architecture-text",
-                  "type": "task",
-                  "titles": {
-                    "en": "Architecture description (text)"
-                  },
-                  "descriptions": {
-                    "en": "Write a clear high-level architecture in markdown: modules, data flow, deployment, and uncertainties."
-                  },
-                  "values": {
-                    "issue_title": "[Task] Product & architecture description",
-                    "branch_hint": "task/architecture",
-                    "deliverable_path": "docs/architecture.md",
-                    "pr_required": "true",
-                    "review_required": "true"
-                  }
-                },
-                {
-                  "id": "lab-01-architecture-diagram",
-                  "type": "task",
-                  "titles": {
-                    "en": "Architecture diagram"
-                  },
-                  "descriptions": {
-                    "en": "Draw the architecture in draw.io (or equivalent) and export to PNG/SVG (plus source file if available)."
-                  },
-                  "values": {
-                    "issue_title": "[Task] Architecture diagram",
-                    "branch_hint": "task/architecture",
-                    "deliverable_path": "diagrams/architecture.png",
-                    "deliverable_optional_path": "diagrams/architecture.drawio",
-                    "extends_existing_pr": "true"
-                  }
-                }
-              ]
-            },
-            {
-              "id": "lab-01-roles-skills",
-              "type": "module",
-              "titles": {
-                "en": "Roles, skills, roadmap.sh & job postings"
-              },
-              "descriptions": {
-                "en": "Map tech roles to modules and identify common skills using roadmap.sh and job postings."
-              },
-              "items": [
-                {
-                  "id": "lab-01-roles-skills-mapping",
-                  "type": "task",
-                  "titles": {
-                    "en": "Roles and skills mapping"
-                  },
-                  "descriptions": {
-                    "en": "Document roles per module, cross-cutting skills, a roadmap.sh self-assessment, and a job market snapshot."
-                  },
-                  "values": {
-                    "issue_title": "[Task] Roles and skills mapping",
-                    "branch_hint": "task/roles-skills",
-                    "deliverable_path": "src/roles-and-skills.md",
-                    "min_job_postings": "2",
-                    "max_job_postings": "3",
-                    "requires_roadmap_sh": "true",
-                    "pr_required": "true",
-                    "review_required": "true"
-                  }
-                }
-              ]
-            },
-            {
-              "id": "lab-01-reflection",
-              "type": "task",
-              "titles": {
-                "en": "Personal reflection"
-              },
-              "descriptions": {
-                "en": "Write a short reflection about your chosen role, relevant skills, and what you want to improve this semester; open a small PR and review it with the TA."
-              },
-              "values": {
-                "issue_title": "[Task] Personal reflection – Lab 01",
-                "deliverable_path": "src/reflection.md",
-                "pr_required": "true",
-                "reviewer": "TA"
-              }
-            },
-            {
-              "id": "lab-01-stretch",
-              "type": "module",
-              "titles": {
-                "en": "Stretch tasks (optional)"
-              },
-              "descriptions": {
-                "en": "Optional tasks if you finish early (compare architectures, sketch an agent idea, implement a basic script/agent)."
-              },
-              "items": [
-                {
-                  "id": "lab-01-stretch-compare",
-                  "type": "task",
-                  "titles": {
-                    "en": "Compare architectures"
-                  },
-                  "descriptions": {
-                    "en": "Pick another digital product/service, explore its architecture, and analyze key differences."
-                  }
-                },
-                {
-                  "id": "lab-01-stretch-agent-idea",
-                  "type": "task",
-                  "titles": {
-                    "en": "Agent idea"
-                  },
-                  "descriptions": {
-                    "en": "Create `src/agent-idea.md` and sketch how an agent could generate issues, do work, create PRs, and review PRs."
-                  },
-                  "values": {
-                    "deliverable_path": "src/agent-idea.md"
-                  }
-                },
-                {
-                  "id": "lab-01-stretch-agent-implement",
-                  "type": "task",
-                  "titles": {
-                    "en": "Implement a basic agent (optional)"
-                  },
-                  "descriptions": {
-                    "en": "Implement a basic version (even a small script) that supports part of the workflow."
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "lab-02",
-          "type": "lab",
-          "titles": {
-            "en": "Lab 02 — Understand, Improve, and Deploy a Backend Service"
-          },
+	      },
+	      "items": [
+	        {
+	          "id": "lab-01",
+	          "type": "lab",
+	          "titles": {
+	            "en": "Lab 01 — Products, Architecture & Roles"
+	          },
+	          "descriptions": {
+	            "en": "Pick a real digital product, describe its architecture and deployment, map components to engineering roles and skills, and practice GitHub flow (issues, branches, PRs, reviews)."
+	          },
+	          "values": {
+	            "repo_dir": "lab-01-market-product-and-git",
+	            "repo_url": "https://github.com/inno-pre-swp/lab-01-market-product-and-git",
+	            "git_ref": "improve-lab",
+	            "readme_path": "lab-01-market-product-and-git/README.md"
+	          },
+	          "items": [
+	            {
+	              "id": "lab-01-setup",
+	              "type": "module",
+	              "titles": {
+	                "en": "Setup"
+	              },
+	              "descriptions": {
+	                "en": "Prepare your forked repository, collaboration, and local tooling."
+	              },
+	              "items": [
+	                {
+	                  "id": "lab-01-fork",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Set up a fork"
+	                  },
+	                  "descriptions": {
+	                    "en": "Create a GitHub account, fork the repo publicly, enable Issues, and (optionally) create a `task` label and protect `main`."
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-collaborator",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Add a classmate as a collaborator"
+	                  },
+	                  "descriptions": {
+	                    "en": "Invite a classmate to your repo and make sure they accept the invitation."
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-local-tools",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Set up local tools"
+	                  },
+	                  "descriptions": {
+	                    "en": "Configure `git`, install `VS Code`, and enable autosave and format-on-save."
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-clone-open",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Clone and open the repo"
+	                  },
+	                  "descriptions": {
+	                    "en": "Clone your fork locally and open it in `VS Code`."
+	                  },
+	                  "values": {
+	                    "command_hint": "git clone https://github.com/<your-username>/lab-01-market-product-and-git"
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-extensions",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Install recommended VS Code extensions"
+	                  },
+	                  "descriptions": {
+	                    "en": "Install the recommended extensions from `.vscode/extensions.json` and sign in where required."
+	                  }
+	                }
+	              ]
+	            },
+	            {
+	              "id": "lab-01-process",
+	              "type": "module",
+	              "titles": {
+	                "en": "Process (GitHub flow)"
+	              },
+	              "descriptions": {
+	                "en": "Organize work via issues and pull requests, keep changes reviewable, and collaborate through PR reviews."
+	              },
+	              "items": [
+	                {
+	                  "id": "lab-01-github-flow",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Follow GitHub flow for each task"
+	                  },
+	                  "descriptions": {
+	                    "en": "Create an issue, work on a branch, open a PR, link it to the issue (e.g. `Closes #...`), request review, merge, close the issue, and delete the branch."
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-pr-reviews",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Do PR reviews with a collaborator"
+	                  },
+	                  "descriptions": {
+	                    "en": "As a reviewer, leave at least 2 meaningful comments and approve when satisfied; as an author, reply to feedback and make the necessary changes."
+	                  }
+	                }
+	              ]
+	            },
+	            {
+	              "id": "lab-01-required",
+	              "type": "module",
+	              "titles": {
+	                "en": "Required tasks"
+	              },
+	              "descriptions": {
+	                "en": "Complete all required tasks in your fork and demonstrate progress to a TA."
+	              },
+	              "items": [
+	                {
+	                  "id": "lab-01-product-architecture",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Product & architecture description"
+	                  },
+	                  "descriptions": {
+	                    "en": "Pick a product, document main components, data flow, deployment, and knowledge gaps in `./docs/architecture.md` with embedded diagrams."
+	                  },
+	                  "values": {
+	                    "issue_title": "[Task] Product & architecture description",
+	                    "deliverable_path": "./docs/architecture.md"
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-roles-skills-mapping",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Roles and skills mapping"
+	                  },
+	                  "descriptions": {
+	                    "en": "Map product components to likely roles, describe responsibilities, and list common skills in `./docs/roles-and-skills.md`."
+	                  },
+	                  "values": {
+	                    "issue_title": "[Task] Roles and skills mapping",
+	                    "deliverable_path": "./docs/roles-and-skills.md"
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-roadmap-and-job-market",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Roadmap.sh and job market snapshot"
+	                  },
+	                  "descriptions": {
+	                    "en": "Choose a role, assess your skills using `roadmap.sh`, review 5–7 job postings, and write a short reflection in `./docs/roles-and-skills.md` (some parts must be written without an LLM)."
+	                  },
+	                  "values": {
+	                    "roadmap_url": "https://roadmap.sh/",
+	                    "deliverable_path": "./docs/roles-and-skills.md"
+	                  }
+	                }
+	              ]
+	            },
+	            {
+	              "id": "lab-01-optional",
+	              "type": "module",
+	              "titles": {
+	                "en": "Optional tasks (pick one)"
+	              },
+	              "descriptions": {
+	                "en": "Pick exactly one optional deep-dive task and still follow the same issue → branch → PR workflow."
+	              },
+	              "items": [
+	                {
+	                  "id": "lab-01-optional-merge-conflicts",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Merge conflicts & resolution"
+	                  },
+	                  "descriptions": {
+	                    "en": "Coordinate conflicting edits with a collaborator and resolve the conflict in a PR, including a short conflict-resolution note."
+	                  },
+	                  "values": {
+	                    "issue_title": "[Task] Deep dive: Merge conflicts",
+	                    "resource_url": "https://learngitbranching.js.org/"
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-optional-add-ci",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Add a CI check (GitHub Actions)"
+	                  },
+	                  "descriptions": {
+	                    "en": "Add a GitHub Actions workflow that runs `markdownlint` on every PR and verify checks pass."
+	                  },
+	                  "values": {
+	                    "issue_title": "[Task] Deep dive: Add CI",
+	                    "docs_url": "https://docs.github.com/en/actions/get-started/quickstart"
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-optional-tag-release",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Tag and release notes (shipping mindset)"
+	                  },
+	                  "descriptions": {
+	                    "en": "Create a `v0.1.0` tag and a GitHub Release with notes: what you built, what you learned, and what you would do next."
+	                  },
+	                  "values": {
+	                    "issue_title": "[Task] Deep dive: Tag and release",
+	                    "semver_url": "https://semver.org/"
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-optional-skill-strategy",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Skill development strategy"
+	                  },
+	                  "descriptions": {
+	                    "en": "Pick one skill from your job-market analysis and write a realistic plan and progress tracking in `./docs/skill-development-strategy.md`."
+	                  },
+	                  "values": {
+	                    "issue_title": "[Task] Skill development strategy",
+	                    "deliverable_path": "./docs/skill-development-strategy.md"
+	                  }
+	                }
+	              ]
+	            },
+	            {
+	              "id": "lab-01-homework",
+	              "type": "module",
+	              "titles": {
+	                "en": "Homework"
+	              },
+	              "descriptions": {
+	                "en": "Self-study to reinforce Git and GitHub workflows."
+	              },
+	              "items": [
+	                {
+	                  "id": "lab-01-hw-tutorial",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Read Git/GitHub tutorial"
+	                  },
+	                  "descriptions": {
+	                    "en": "Read the tutorial on Git, GitHub, and Git workflows."
+	                  },
+	                  "values": {
+	                    "url": "https://hackmd.io/@aabounegm/SWP-git"
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-hw-practice",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Practice on Learn Git Branching"
+	                  },
+	                  "descriptions": {
+	                    "en": "Practice merge/rebase and conflict resolution on the interactive tutorial."
+	                  },
+	                  "values": {
+	                    "url": "https://learngitbranching.js.org/"
+	                  }
+	                },
+	                {
+	                  "id": "lab-01-hw-github-flow",
+	                  "type": "task",
+	                  "titles": {
+	                    "en": "Read about GitHub flow"
+	                  },
+	                  "descriptions": {
+	                    "en": "Read the official documentation for the GitHub flow branching model."
+	                  },
+	                  "values": {
+	                    "url": "https://docs.github.com/en/get-started/using-github/github-flow"
+	                  }
+	                }
+	              ]
+	            }
+	          ]
+	        },
+	        {
+	          "id": "lab-02",
+	          "type": "lab",
+	          "titles": {
+	            "en": "Lab 02 — Understand, Improve, and Deploy a Backend Service"
+	          },
           "descriptions": {
             "en": "Run a FastAPI service locally, document and fix a bug with tests, add a small feature, then deploy to a Linux VPS using systemd and Nginx."
           },
@@ -274,10 +385,10 @@
                   "id": "lab-02-feature",
                   "type": "task",
                   "titles": {
-                    "en": "Implement a small improvement"
+                    "en": "Implement the Outcomes API"
                   },
                   "descriptions": {
-                    "en": "Implement a small feature (as specified in the repo), add/update tests, open a PR, request review, and merge."
+                    "en": "Implement `GET /outcomes` and `GET /outcomes/{outcome_id}` backed by `src/app/data/outcomes.json`, add tests, open a PR, request review, and merge."
                   }
                 }
               ]

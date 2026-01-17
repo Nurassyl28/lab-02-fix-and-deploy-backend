@@ -24,9 +24,9 @@ You have joined a backend team at a growing tech startup.
 A small FastAPI service already exists. Your senior engineer gives you your first assignment:
 
 > “Before we give you bigger features, you need to show you can:
-> 1) Run our service,  
-> 2) Fix a small bug,  
-> 3) Add a simple improvement, and  
+> 1) Run our service and verify it’s healthy (`/status`),  
+> 2) Investigate and fix a bug in the course material endpoints (`/items`),  
+> 3) Implement a missing Outcomes API (`/outcomes`) from a provided JSON file, and  
 > 4) Deploy your change to the server.”
 
 This is exactly how real onboarding works in many tech companies.
@@ -109,12 +109,23 @@ Steps:
   cd src
   uvicorn main:app --reload
   ```
-- [ ] Verify `/status` endpoint returns the correct JSON.
+- [ ] Open the interactive API docs: `http://127.0.0.1:8000/docs`
+- [ ] Verify `/status` returns the correct JSON.
+- [ ] Verify `/items/course` returns a nested “course structure” JSON.
 - [ ] Document any unclear parts of the code in the issue.
 
 TA checks: “Local app running successfully.”
 
 ---
+
+#### Local API overview (for exploration)
+
+Use `http://127.0.0.1:8000/docs` and try:
+
+- `GET /status` — health check
+- `GET /items/course` — full nested course structure
+- `GET /items` — top-level items (supports `?type=...` filtering across the full nested structure)
+- `GET /items/{item_id}` — fetch any item by id (including nested ones)
 
 ### 2. Document the bug using the bug issue template
 
@@ -124,6 +135,8 @@ Create a **bug issue** using the template:
 
 Steps:
 
+- [ ] Focus your search on the `/items` endpoints (course structure + listing/filtering).
+- [ ] Use `/items/course` to understand what items exist, then try listing with filters like `GET /items?type=lab` or `GET /items?type=task`.
 - [ ] Describe the incorrect behavior.
 - [ ] Add steps to reproduce it.
 - [ ] Explain expected vs actual behavior.
@@ -163,15 +176,35 @@ TA checks the merged PR.
 
 Create an issue:
 
-- `[Task] Implement feature: <feature name>`
+- `[Task] Implement feature: Outcomes API (/outcomes)`
 
-The feature is specified in the repo (typically small, e.g., a `/greet?name=` endpoint, a simple counter, or input validation).
+#### Background
+
+The service includes a data file at `src/app/data/outcomes.json`, but the backend does **not** expose it yet.
+If you try `/outcomes` right now, you should get a `404` until you implement the feature.
+
+Your job is to implement an Outcomes API so the frontend (and other services) can fetch learning outcomes.
+
+#### Requirements
+
+- Add `GET /outcomes`
+  - Returns the full outcomes payload from `src/app/data/outcomes.json`
+  - Response shape: `{"outcomes": [...]}` (validated with Pydantic models)
+- Add `GET /outcomes/{outcome_id}`
+  - Returns one outcome by `id` (search must work for nested `suboutcomes`)
+  - Returns `404` with a clear message if not found
+
+Implementation guidance (you decide the exact structure, but keep it clean):
+
+- Add models in `src/app/models/` (similar style to `Item`/`CourseMaterial`)
+- Add a service in `src/app/services/` that loads JSON and supports lookup by id
+- Add a router in `src/app/routers/` and register it in `src/main.py`
 
 Steps:
 
 - [ ] Create a branch.
 - [ ] Implement the feature.
-- [ ] Add/update tests.
+- [ ] Add tests for both endpoints.
 - [ ] Open a PR and request review.
 
 After proper review → merge PR.

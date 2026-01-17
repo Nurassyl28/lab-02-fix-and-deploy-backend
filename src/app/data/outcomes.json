@@ -20,7 +20,7 @@
             "en": "Products, architecture, roles, and collaboration workflows."
           },
           "coverage_notes": {
-            "en": "The lab tasks map directly to the stated learning outcomes: architecture description + diagram, roles/skills mapping, and practicing GitHub workflow with peer review."
+            "en": "The lab tasks map to the stated learning outcomes: product architecture documentation (with diagrams), roles/skills mapping and market research, and collaboration via issues, branches, PRs, and reviews."
           },
           "suboutcomes": [
             {
@@ -30,24 +30,23 @@
                 "en": "Explain the basic architecture of a real-world digital product"
               },
               "descriptions": {
-                "en": "Explain modules, data flow, and deployment of a real-world digital product using both text and a diagram."
+                "en": "Explain components, data flow, and deployment of a real-world digital product using both text and diagrams."
               },
               "related_item_ids": [
-                "lab-01-architecture-text",
-                "lab-01-architecture-diagram"
+                "lab-01-product-architecture"
               ],
               "coverage_notes": {
-                "en": "Covered by the architecture description and diagram tasks; students must be able to explain their diagram during review."
+                "en": "Covered by the product & architecture description task; students must be able to explain their diagrams during review."
               },
               "suboutcomes": [
                 {
                   "id": "lab-01-suboutcome-modules",
                   "type": "suboutcome",
                   "titles": {
-                    "en": "Identify key modules"
+                    "en": "Identify main components"
                   },
                   "descriptions": {
-                    "en": "Break the product into major modules (clients, services, data stores) and describe what each does."
+                    "en": "Break the product into major components (clients, services, data stores) and describe what each does."
                   }
                 },
                 {
@@ -57,7 +56,7 @@
                     "en": "Describe data flow"
                   },
                   "descriptions": {
-                    "en": "Explain how modules communicate for a typical user action and what data moves between them."
+                    "en": "Explain how components communicate for a typical user action and what data moves between them."
                   }
                 },
                 {
@@ -87,7 +86,7 @@
                     "en": "Communicate architecture visually"
                   },
                   "descriptions": {
-                    "en": "Create a diagram showing modules and data flow clearly enough to explain it to another engineer."
+                    "en": "Create diagrams showing components and interactions clearly enough to explain them to another engineer."
                   }
                 }
               ]
@@ -102,20 +101,21 @@
                 "en": "Identify which tech roles work on which parts of the product and which general skills are shared across roles."
               },
               "related_item_ids": [
-                "lab-01-roles-skills-mapping"
+                "lab-01-roles-skills-mapping",
+                "lab-01-roadmap-and-job-market"
               ],
               "coverage_notes": {
-                "en": "Covered by the roles/skills mapping task, which explicitly requires roadmap.sh and job postings research."
+                "en": "Covered by the roles/skills mapping task and the roadmap/job market task."
               },
               "suboutcomes": [
                 {
                   "id": "lab-01-suboutcome-roles-per-module",
                   "type": "suboutcome",
                   "titles": {
-                    "en": "Assign roles per module"
+                    "en": "Assign roles per component"
                   },
                   "descriptions": {
-                    "en": "For each module, list the likely roles involved (e.g., backend, frontend/mobile, DevOps, QA, PM)."
+                    "en": "For each component, list the likely roles involved (e.g., backend, frontend/mobile, DevOps, QA, PM)."
                   }
                 },
                 {
@@ -145,7 +145,7 @@
                     "en": "Compare roadmap to job postings"
                   },
                   "descriptions": {
-                    "en": "Review 2–3 job postings and summarize which skills repeatedly appear and which ones are surprising."
+                    "en": "Review 5–7 job postings and summarize which skills repeatedly appear and which ones are surprising."
                   }
                 }
               ]
@@ -160,14 +160,14 @@
                 "en": "Use issues, branches, and pull requests to structure work and get peer review."
               },
               "related_item_ids": [
-                "lab-01-setup",
-                "lab-01-architecture-text",
-                "lab-01-architecture-diagram",
+                "lab-01-github-flow",
+                "lab-01-pr-reviews",
+                "lab-01-product-architecture",
                 "lab-01-roles-skills-mapping",
-                "lab-01-reflection"
+                "lab-01-roadmap-and-job-market"
               ],
               "coverage_notes": {
-                "en": "Covered throughout the lab: each task follows the Issue → PR → Review flow, and changes should be peer-reviewed."
+                "en": "Covered by the explicit process tasks (GitHub flow + PR reviews) and applied throughout the required tasks."
               },
               "suboutcomes": [
                 {
@@ -202,10 +202,10 @@
                 "en": "Write a short reflection about the chosen role, architectural insights, and concrete skills to improve."
               },
               "related_item_ids": [
-                "lab-01-reflection"
+                "lab-01-roadmap-and-job-market"
               ],
               "coverage_notes": {
-                "en": "Covered by the reflection task, which is explicitly personal and should not be written by an LLM."
+                "en": "Covered by the personal reflection section in `./docs/roles-and-skills.md` and should be written without an LLM."
               },
               "suboutcomes": [
                 {
