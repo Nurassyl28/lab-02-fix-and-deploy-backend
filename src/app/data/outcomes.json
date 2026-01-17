@@ -161,12 +161,13 @@
               },
               "related_item_ids": [
                 "lab-01-setup",
-                "lab-01-peer-review-author",
-                "lab-01-peer-review-reviewer",
-                "lab-01-peer-review-merge"
+                "lab-01-architecture-text",
+                "lab-01-architecture-diagram",
+                "lab-01-roles-skills-mapping",
+                "lab-01-reflection"
               ],
               "coverage_notes": {
-                "en": "Covered throughout the lab: each task is tracked via issues/PRs, and peer review is explicitly required."
+                "en": "Covered throughout the lab: each task follows the Issue → PR → Review flow, and changes should be peer-reviewed."
               },
               "suboutcomes": [
                 {
@@ -186,7 +187,7 @@
                     "en": "Participate in peer review"
                   },
                   "descriptions": {
-                    "en": "Request reviews, leave meaningful feedback, address comments, and merge when approved."
+                    "en": "Request reviews, leave at least 2 meaningful comments, address feedback, and merge when approved."
                   }
                 }
               ]

@@ -27,7 +27,10 @@
             "lab_story_path": "lab-01-market-product-and-git/LAB_STORY.md",
             "ta_checklist_path": "lab-01-market-product-and-git/TA_CHECKLIST.md",
             "issue_templates_dir": "lab-01-market-product-and-git/.github/ISSUE_TEMPLATE",
-            "pr_template_path": "lab-01-market-product-and-git/.github/pull_request_template.md"
+            "pr_template_path": "lab-01-market-product-and-git/.github/pull_request_template.md",
+            "workflow": "Issue -> PR -> Review",
+            "peer_review_required": "true",
+            "min_review_comments": "2"
           },
           "items": [
             {
@@ -37,7 +40,7 @@
                 "en": "Setup"
               },
               "descriptions": {
-                "en": "Fork/clone the repo, configure Git, invite a reviewer, and create the setup issue."
+                "en": "Fork the repo, add a classmate as collaborator, configure Git, clone locally, and create the setup issue."
               },
               "values": {
                 "issue_title": "[Task] Lab 01 setup"
@@ -65,8 +68,9 @@
                   "values": {
                     "issue_title": "[Task] Product & architecture description",
                     "branch_hint": "task/architecture",
-                    "branch_alt": "feature/architecture",
-                    "deliverable_path": "docs/architecture.md"
+                    "deliverable_path": "docs/architecture.md",
+                    "pr_required": "true",
+                    "review_required": "true"
                   }
                 },
                 {
@@ -80,8 +84,10 @@
                   },
                   "values": {
                     "issue_title": "[Task] Architecture diagram",
+                    "branch_hint": "task/architecture",
                     "deliverable_path": "diagrams/architecture.png",
-                    "deliverable_optional_path": "diagrams/architecture.drawio"
+                    "deliverable_optional_path": "diagrams/architecture.drawio",
+                    "extends_existing_pr": "true"
                   }
                 }
               ]
@@ -90,7 +96,7 @@
               "id": "lab-01-roles-skills",
               "type": "module",
               "titles": {
-                "en": "Roles & skills"
+                "en": "Roles, skills, roadmap.sh & job postings"
               },
               "descriptions": {
                 "en": "Map tech roles to modules and identify common skills using roadmap.sh and job postings."
@@ -108,54 +114,12 @@
                   "values": {
                     "issue_title": "[Task] Roles and skills mapping",
                     "branch_hint": "task/roles-skills",
-                    "branch_alt": "feature/roles-skills",
-                    "deliverable_path": "src/roles-and-skills.md"
-                  }
-                }
-              ]
-            },
-            {
-              "id": "lab-01-peer-review",
-              "type": "module",
-              "titles": {
-                "en": "Peer review"
-              },
-              "descriptions": {
-                "en": "Practice the Issue → Branch → PR → Review workflow as both author and reviewer."
-              },
-              "values": {
-                "issue_title": "[Task] Code review for Lab 01",
-                "min_review_comments": "2"
-              },
-              "items": [
-                {
-                  "id": "lab-01-peer-review-author",
-                  "type": "task",
-                  "titles": {
-                    "en": "Open PR(s) and request review"
-                  },
-                  "descriptions": {
-                    "en": "Open PR(s), link issues, and request a classmate review using the PR template."
-                  }
-                },
-                {
-                  "id": "lab-01-peer-review-reviewer",
-                  "type": "task",
-                  "titles": {
-                    "en": "Review a classmate PR"
-                  },
-                  "descriptions": {
-                    "en": "Leave at least 2 meaningful comments and follow up on changes."
-                  }
-                },
-                {
-                  "id": "lab-01-peer-review-merge",
-                  "type": "task",
-                  "titles": {
-                    "en": "Address feedback and merge"
-                  },
-                  "descriptions": {
-                    "en": "Address review feedback, respond to comments, get approval, and merge."
+                    "deliverable_path": "src/roles-and-skills.md",
+                    "min_job_postings": "2",
+                    "max_job_postings": "3",
+                    "requires_roadmap_sh": "true",
+                    "pr_required": "true",
+                    "review_required": "true"
                   }
                 }
               ]
@@ -167,11 +131,13 @@
                 "en": "Personal reflection"
               },
               "descriptions": {
-                "en": "Write a short reflection about your chosen role, new insights, and skills to improve this semester."
+                "en": "Write a short reflection about your chosen role, relevant skills, and what you want to improve this semester; open a small PR and review it with the TA."
               },
               "values": {
                 "issue_title": "[Task] Personal reflection – Lab 01",
-                "deliverable_path": "src/reflection.md"
+                "deliverable_path": "src/reflection.md",
+                "pr_required": "true",
+                "reviewer": "TA"
               }
             },
             {
@@ -181,8 +147,43 @@
                 "en": "Stretch tasks (optional)"
               },
               "descriptions": {
-                "en": "Optional tasks if you finish early (extra diagrams, agent idea, small script)."
-              }
+                "en": "Optional tasks if you finish early (compare architectures, sketch an agent idea, implement a basic script/agent)."
+              },
+              "items": [
+                {
+                  "id": "lab-01-stretch-compare",
+                  "type": "task",
+                  "titles": {
+                    "en": "Compare architectures"
+                  },
+                  "descriptions": {
+                    "en": "Pick another digital product/service, explore its architecture, and analyze key differences."
+                  }
+                },
+                {
+                  "id": "lab-01-stretch-agent-idea",
+                  "type": "task",
+                  "titles": {
+                    "en": "Agent idea"
+                  },
+                  "descriptions": {
+                    "en": "Create `src/agent-idea.md` and sketch how an agent could generate issues, do work, create PRs, and review PRs."
+                  },
+                  "values": {
+                    "deliverable_path": "src/agent-idea.md"
+                  }
+                },
+                {
+                  "id": "lab-01-stretch-agent-implement",
+                  "type": "task",
+                  "titles": {
+                    "en": "Implement a basic agent (optional)"
+                  },
+                  "descriptions": {
+                    "en": "Implement a basic version (even a small script) that supports part of the workflow."
+                  }
+                }
+              ]
             }
           ]
         },
