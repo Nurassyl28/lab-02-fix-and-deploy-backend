@@ -27,7 +27,7 @@
               "id": "lab-01-outcome-architecture",
               "type": "outcome",
               "titles": {
-                "en": "Explain a product architecture at a high level"
+                "en": "Explain the basic architecture of a real-world digital product"
               },
               "descriptions": {
                 "en": "Explain modules, data flow, and deployment of a real-world digital product using both text and a diagram."
@@ -96,10 +96,10 @@
               "id": "lab-01-outcome-roles-skills",
               "type": "outcome",
               "titles": {
-                "en": "Map roles and skills to the product architecture"
+                "en": "Identify roles and shared skills across the product"
               },
               "descriptions": {
-                "en": "Identify which engineering roles work on which modules and what skills are shared across roles."
+                "en": "Identify which tech roles work on which parts of the product and which general skills are shared across roles."
               },
               "related_item_ids": [
                 "lab-01-roles-skills-mapping"
@@ -154,10 +154,10 @@
               "id": "lab-01-outcome-github-workflow",
               "type": "outcome",
               "titles": {
-                "en": "Use a GitHub collaboration workflow"
+                "en": "Use GitHub issues, branches, and pull requests"
               },
               "descriptions": {
-                "en": "Use issues, branches, and PRs to structure work and practice giving/receiving peer review."
+                "en": "Use issues, branches, and pull requests to structure work and get peer review."
               },
               "related_item_ids": [
                 "lab-01-setup",
@@ -401,6 +401,16 @@
                   },
                   "descriptions": {
                     "en": "Configure Nginx as a reverse proxy and verify the app is reachable externally."
+                  }
+                },
+                {
+                  "id": "lab-02-suboutcome-verify-external",
+                  "type": "suboutcome",
+                  "titles": {
+                    "en": "Verify the deployed service externally"
+                  },
+                  "descriptions": {
+                    "en": "Confirm the service is running and reachable from your browser (or curl) via the server IP/domain and Nginx."
                   }
                 }
               ]

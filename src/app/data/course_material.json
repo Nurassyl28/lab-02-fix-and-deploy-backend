@@ -21,8 +21,13 @@
           },
           "values": {
             "repo_dir": "lab-01-market-product-and-git",
+            "repo_url": "https://github.com/nurlingo/lab-01-market-product-and-git",
+            "git_ref": "db49c20",
             "readme_path": "lab-01-market-product-and-git/README.md",
-            "lab_story_path": "lab-01-market-product-and-git/LAB_STORY.md"
+            "lab_story_path": "lab-01-market-product-and-git/LAB_STORY.md",
+            "ta_checklist_path": "lab-01-market-product-and-git/TA_CHECKLIST.md",
+            "issue_templates_dir": "lab-01-market-product-and-git/.github/ISSUE_TEMPLATE",
+            "pr_template_path": "lab-01-market-product-and-git/.github/pull_request_template.md"
           },
           "items": [
             {
@@ -118,6 +123,10 @@
               "descriptions": {
                 "en": "Practice the Issue → Branch → PR → Review workflow as both author and reviewer."
               },
+              "values": {
+                "issue_title": "[Task] Code review for Lab 01",
+                "min_review_comments": "2"
+              },
               "items": [
                 {
                   "id": "lab-01-peer-review-author",
@@ -188,7 +197,12 @@
           },
           "values": {
             "repo_dir": "lab-02-fix-and-deploy-backend",
-            "readme_path": "lab-02-fix-and-deploy-backend/README.md"
+            "repo_url": "https://github.com/nurlingo/lab-02-fix-and-deploy-backend",
+            "git_ref": "00464ba",
+            "readme_path": "lab-02-fix-and-deploy-backend/README.md",
+            "ta_checklist_path": "lab-02-fix-and-deploy-backend/TA_CHECKLIST.md",
+            "requirements_path": "lab-02-fix-and-deploy-backend/requirements.txt",
+            "app_entrypoint": "lab-02-fix-and-deploy-backend/src/main.py"
           },
           "items": [
             {
@@ -225,7 +239,7 @@
                   },
                   "values": {
                     "issue_title": "[Task] Run the backend locally",
-                    "command": "uvicorn main:app --reload",
+                    "command": "cd src && uvicorn main:app --reload",
                     "verify_endpoint": "/status"
                   }
                 },
