@@ -1,0 +1,347 @@
+{
+  "items": [
+    {
+      "id": "course",
+      "type": "course",
+      "titles": {
+        "en": "Software Engineering Toolkit (Labs 1–2)"
+      },
+      "descriptions": {
+        "en": "Course structure and deliverables for labs 1 and 2."
+      },
+      "items": [
+        {
+          "id": "lab-01",
+          "type": "lab",
+          "titles": {
+            "en": "Lab 01 — Products, Architecture & Roles"
+          },
+          "descriptions": {
+            "en": "Pick a real product, describe its architecture, map roles and skills, and practice GitHub collaboration and peer review."
+          },
+          "values": {
+            "repo_dir": "lab-01-market-product-and-git",
+            "readme_path": "lab-01-market-product-and-git/README.md",
+            "lab_story_path": "lab-01-market-product-and-git/LAB_STORY.md"
+          },
+          "items": [
+            {
+              "id": "lab-01-setup",
+              "type": "task",
+              "titles": {
+                "en": "Setup"
+              },
+              "descriptions": {
+                "en": "Fork/clone the repo, configure Git, invite a reviewer, and create the setup issue."
+              },
+              "values": {
+                "issue_title": "[Task] Lab 01 setup"
+              }
+            },
+            {
+              "id": "lab-01-architecture",
+              "type": "module",
+              "titles": {
+                "en": "Architecture"
+              },
+              "descriptions": {
+                "en": "Describe the product architecture (modules, data flow, deployment) and create a diagram."
+              },
+              "items": [
+                {
+                  "id": "lab-01-architecture-text",
+                  "type": "task",
+                  "titles": {
+                    "en": "Architecture description (text)"
+                  },
+                  "descriptions": {
+                    "en": "Write a clear high-level architecture in markdown: modules, data flow, deployment, and uncertainties."
+                  },
+                  "values": {
+                    "issue_title": "[Task] Product & architecture description",
+                    "branch_hint": "task/architecture",
+                    "branch_alt": "feature/architecture",
+                    "deliverable_path": "docs/architecture.md"
+                  }
+                },
+                {
+                  "id": "lab-01-architecture-diagram",
+                  "type": "task",
+                  "titles": {
+                    "en": "Architecture diagram"
+                  },
+                  "descriptions": {
+                    "en": "Draw the architecture in draw.io (or equivalent) and export to PNG/SVG (plus source file if available)."
+                  },
+                  "values": {
+                    "issue_title": "[Task] Architecture diagram",
+                    "deliverable_path": "diagrams/architecture.png",
+                    "deliverable_optional_path": "diagrams/architecture.drawio"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lab-01-roles-skills",
+              "type": "module",
+              "titles": {
+                "en": "Roles & skills"
+              },
+              "descriptions": {
+                "en": "Map tech roles to modules and identify common skills using roadmap.sh and job postings."
+              },
+              "items": [
+                {
+                  "id": "lab-01-roles-skills-mapping",
+                  "type": "task",
+                  "titles": {
+                    "en": "Roles and skills mapping"
+                  },
+                  "descriptions": {
+                    "en": "Document roles per module, cross-cutting skills, a roadmap.sh self-assessment, and a job market snapshot."
+                  },
+                  "values": {
+                    "issue_title": "[Task] Roles and skills mapping",
+                    "branch_hint": "task/roles-skills",
+                    "branch_alt": "feature/roles-skills",
+                    "deliverable_path": "src/roles-and-skills.md"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lab-01-peer-review",
+              "type": "module",
+              "titles": {
+                "en": "Peer review"
+              },
+              "descriptions": {
+                "en": "Practice the Issue → Branch → PR → Review workflow as both author and reviewer."
+              },
+              "items": [
+                {
+                  "id": "lab-01-peer-review-author",
+                  "type": "task",
+                  "titles": {
+                    "en": "Open PR(s) and request review"
+                  },
+                  "descriptions": {
+                    "en": "Open PR(s), link issues, and request a classmate review using the PR template."
+                  }
+                },
+                {
+                  "id": "lab-01-peer-review-reviewer",
+                  "type": "task",
+                  "titles": {
+                    "en": "Review a classmate PR"
+                  },
+                  "descriptions": {
+                    "en": "Leave at least 2 meaningful comments and follow up on changes."
+                  }
+                },
+                {
+                  "id": "lab-01-peer-review-merge",
+                  "type": "task",
+                  "titles": {
+                    "en": "Address feedback and merge"
+                  },
+                  "descriptions": {
+                    "en": "Address review feedback, respond to comments, get approval, and merge."
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lab-01-reflection",
+              "type": "task",
+              "titles": {
+                "en": "Personal reflection"
+              },
+              "descriptions": {
+                "en": "Write a short reflection about your chosen role, new insights, and skills to improve this semester."
+              },
+              "values": {
+                "issue_title": "[Task] Personal reflection – Lab 01",
+                "deliverable_path": "src/reflection.md"
+              }
+            },
+            {
+              "id": "lab-01-stretch",
+              "type": "module",
+              "titles": {
+                "en": "Stretch tasks (optional)"
+              },
+              "descriptions": {
+                "en": "Optional tasks if you finish early (extra diagrams, agent idea, small script)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lab-02",
+          "type": "lab",
+          "titles": {
+            "en": "Lab 02 — Understand, Improve, and Deploy a Backend Service"
+          },
+          "descriptions": {
+            "en": "Run a FastAPI service locally, document and fix a bug with tests, add a small feature, then deploy to a Linux VPS using systemd and Nginx."
+          },
+          "values": {
+            "repo_dir": "lab-02-fix-and-deploy-backend",
+            "readme_path": "lab-02-fix-and-deploy-backend/README.md"
+          },
+          "items": [
+            {
+              "id": "lab-02-setup",
+              "type": "task",
+              "titles": {
+                "en": "Setup"
+              },
+              "descriptions": {
+                "en": "Ensure access, clone the repo, install Python 3.10+, and read the lab instructions."
+              },
+              "values": {
+                "issue_title": "[Task] Lab 02 setup"
+              }
+            },
+            {
+              "id": "lab-02-local-development",
+              "type": "module",
+              "titles": {
+                "en": "Local development"
+              },
+              "descriptions": {
+                "en": "Run and explore the service locally, document a bug, fix it with tests, and implement a small improvement."
+              },
+              "items": [
+                {
+                  "id": "lab-02-run-local",
+                  "type": "task",
+                  "titles": {
+                    "en": "Run the backend locally"
+                  },
+                  "descriptions": {
+                    "en": "Create a virtualenv, install dependencies, run Uvicorn, and verify `/status`."
+                  },
+                  "values": {
+                    "issue_title": "[Task] Run the backend locally",
+                    "command": "uvicorn main:app --reload",
+                    "verify_endpoint": "/status"
+                  }
+                },
+                {
+                  "id": "lab-02-document-bug",
+                  "type": "task",
+                  "titles": {
+                    "en": "Document a bug"
+                  },
+                  "descriptions": {
+                    "en": "Create a bug issue with steps to reproduce, expected vs actual behavior, and logs/screenshots."
+                  },
+                  "values": {
+                    "issue_title": "[Bug] Unexpected behavior in <endpoint/function>"
+                  }
+                },
+                {
+                  "id": "lab-02-fix-bug",
+                  "type": "task",
+                  "titles": {
+                    "en": "Fix the bug (PR)"
+                  },
+                  "descriptions": {
+                    "en": "Fix the bug on a feature branch, add/update a test in `tests/`, open a PR, request review, and merge."
+                  },
+                  "values": {
+                    "branch_hint": "fix/<bug-name>"
+                  }
+                },
+                {
+                  "id": "lab-02-feature",
+                  "type": "task",
+                  "titles": {
+                    "en": "Implement a small improvement"
+                  },
+                  "descriptions": {
+                    "en": "Implement a small feature (as specified in the repo), add/update tests, open a PR, request review, and merge."
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lab-02-deployment",
+              "type": "module",
+              "titles": {
+                "en": "Remote deployment (Linux VPS)"
+              },
+              "descriptions": {
+                "en": "Deploy the updated service to a Linux server using SSH, virtualenv, systemd, and Nginx."
+              },
+              "items": [
+                {
+                  "id": "lab-02-connect-vps",
+                  "type": "task",
+                  "titles": {
+                    "en": "Connect to VPS"
+                  },
+                  "descriptions": {
+                    "en": "SSH into the server and verify you can connect and navigate."
+                  }
+                },
+                {
+                  "id": "lab-02-prepare-vps",
+                  "type": "task",
+                  "titles": {
+                    "en": "Prepare VPS environment"
+                  },
+                  "descriptions": {
+                    "en": "Create `/var/www/myapp/`, upload code, create a virtualenv, and install requirements."
+                  }
+                },
+                {
+                  "id": "lab-02-run-vps",
+                  "type": "task",
+                  "titles": {
+                    "en": "Run the app manually on VPS"
+                  },
+                  "descriptions": {
+                    "en": "Run Uvicorn on `0.0.0.0:8001` and verify `http://SERVER_IP:8001/status`."
+                  }
+                },
+                {
+                  "id": "lab-02-systemd",
+                  "type": "task",
+                  "titles": {
+                    "en": "Create a systemd service"
+                  },
+                  "descriptions": {
+                    "en": "Create a systemd unit, enable/start it, and verify it stays running."
+                  }
+                },
+                {
+                  "id": "lab-02-nginx",
+                  "type": "task",
+                  "titles": {
+                    "en": "Configure Nginx reverse proxy"
+                  },
+                  "descriptions": {
+                    "en": "Configure Nginx to reverse proxy to the app and verify `http://SERVER_IP/status`."
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lab-02-stretch",
+              "type": "module",
+              "titles": {
+                "en": "Stretch tasks (optional)"
+              },
+              "descriptions": {
+                "en": "Optional improvements like a `/version` endpoint, structured logging, or deployment scripts."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
