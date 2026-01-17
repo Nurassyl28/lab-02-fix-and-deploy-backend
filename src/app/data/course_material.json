@@ -198,7 +198,7 @@
           "values": {
             "repo_dir": "lab-02-fix-and-deploy-backend",
             "repo_url": "https://github.com/nurlingo/lab-02-fix-and-deploy-backend",
-            "git_ref": "00464ba",
+            "git_ref": "73ea8ae",
             "readme_path": "lab-02-fix-and-deploy-backend/README.md",
             "ta_checklist_path": "lab-02-fix-and-deploy-backend/TA_CHECKLIST.md",
             "requirements_path": "lab-02-fix-and-deploy-backend/requirements.txt",
