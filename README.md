@@ -145,6 +145,10 @@ Use `http://127.0.0.1:8000/docs` and try:
 - `GET /items` — list items (by default: top-level; with `?type=...`: items of that type across the full nested structure)
 - `GET /items/{item_id}` — fetch any item by id (including nested ones)
 
+Tip:
+- Use `/items/course` when you need the full tree.
+- Use `/items` when you want a smaller response (top-level), or when you want to extract a specific `type` quickly.
+
 ### 2. Document the bug using the bug issue template
 
 Create a **bug issue** using the template:
