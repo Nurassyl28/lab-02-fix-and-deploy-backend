@@ -5,7 +5,7 @@ from typing import Iterable, List, Optional
 
 from app.models.item import CourseMaterial, Item
 
-DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "course_material.json"
+DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "course_items.json"
 
 
 def _iter_items(items: List[Item]) -> Iterable[Item]:

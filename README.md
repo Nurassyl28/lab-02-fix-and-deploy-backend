@@ -12,7 +12,7 @@ You are **expected to use LLMs**, but:
 - You must understand every line of code you commit.
 - You must run and test everything yourself.
 - You should ask LLMs for explanations and suggestions, not full solutions.
-- The TA may ask you to explain how your deployment works.
+- The TA may ask you to explain your solution.
 
 Work **independently**, but ask a classmate to review your PRs when required.
 
@@ -36,11 +36,10 @@ follow processes, communicate through issues and PRs, and deliver a working depl
 
 ### System context (what you’re building)
 
-This repo contains a small read-only backend called **Course Material Service**. It powers a learning platform:
-
-- The **frontend** needs a JSON “course tree” to render navigation (course → labs → modules → tasks).
-- Later, it will also show **learning outcomes** for the course.
-- For simplicity, the “database” is just JSON files in `src/app/data/`.
+This repo contains a small read-only backend called **Course Material Service**:
+- Currentyl it serves course materials.
+- Later, you'll also add **learning outcomes**.
+- For simplicity, all data is JSON files in `src/app/data/`.
 
 In this lab, you will run the service, debug an existing endpoint, add missing API functionality, and deploy it to a VPS.
 
@@ -68,11 +67,11 @@ By the end of this lab, you should be able to:
 
 ## How the lab works
 
-1. **Fork or clone** this repo to your GitHub account (or accept the Classroom assignment link).
+1. **Fork** this repo to your account.
 2. Complete tasks in this README.
 3. For each task:
-   - Create/assign an **issue** using the appropriate template in `.github/ISSUE_TEMPLATE/` (if present in your fork).
-   - Implement the task on a **feature branch**.
+   - Create/assign an **issue** using the appropriate template in `.github/ISSUE_TEMPLATE/`.
+   - Implement the task on a **newly created branch**.
    - Open a **Pull Request** and request review when required.
 4. After each task, show your progress to the TA, who will check it off.
 
