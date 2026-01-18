@@ -37,7 +37,7 @@ follow processes, communicate through issues and PRs, and deliver a working depl
 ### System context (what you’re building)
 
 This repo contains a small read-only backend called **Course Material Service**:
-- Currentyl it serves course materials.
+- Currentyl it serves course-related items (labs, modules, and tasks).
 - Later, you'll also add **learning outcomes**.
 - For simplicity, all data is JSON files in `src/app/data/`.
 
