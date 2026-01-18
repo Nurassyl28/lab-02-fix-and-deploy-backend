@@ -34,6 +34,24 @@ This is exactly how real onboarding works in many tech companies.
 Your goal is to behave like a junior engineer in a real team:
 follow processes, communicate through issues and PRs, and deliver a working deployment.
 
+### System context (what you’re building)
+
+This repo contains a small read-only backend called **Course Material Service**. It powers a learning platform:
+
+- The **frontend** needs a JSON “course tree” to render navigation (course → labs → modules → tasks).
+- Later, it will also show **learning outcomes** for the course.
+- For simplicity, the “database” is just JSON files in `src/app/data/`.
+
+In this lab, you will run the service, debug an existing endpoint, add missing API functionality, and deploy it to a VPS.
+
+### Key entities (what the API serves)
+
+- `Item` — a generic node in the course tree.
+  - Has an `id` (unique string), a `type` (e.g. `course`, `lab`, `module`, `task`), and optional metadata (`titles`, `descriptions`, `values`, etc.).
+  - Can contain nested `items`, so the structure forms a **tree**.
+- `CourseMaterial` — the top-level document that wraps the course tree.
+  - Contains `items: List[Item]` (the top-level nodes; in this dataset it starts with a single `course` item).
+
 ---
 
 ## Learning outcomes
@@ -124,7 +142,7 @@ Use `http://127.0.0.1:8000/docs` and try:
 
 - `GET /status` — health check
 - `GET /items/course` — full nested course structure
-- `GET /items` — top-level items (supports `?type=...` filtering across the full nested structure)
+- `GET /items` — list items (by default: top-level; with `?type=...`: items of that type across the full nested structure)
 - `GET /items/{item_id}` — fetch any item by id (including nested ones)
 
 ### 2. Document the bug using the bug issue template
