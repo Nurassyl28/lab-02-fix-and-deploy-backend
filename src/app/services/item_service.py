@@ -24,10 +24,10 @@ def get_course_items() -> List[Item]:
 def find_item_by_id(item_id: str) -> Optional[Item]:
     courses = get_course_items()
     for course in courses:
-        if course.id == item_id or course.type == item_id:
+        if course.id == item_id:
             return course
 
         for item in _iter_item_tree(course):
-            if item.id == item_id:
+            if item.type == item_id:
                 return item
     return None
