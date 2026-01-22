@@ -3,53 +3,77 @@
 Welcome to **Software Engineering Toolkit**.
 
 In this lab, you will:
+
 - Run and explore an existing FastAPI codebase.
 - Document and fix a bug using the bug issue template.
 - Implement a small new feature.
 - Deploy the updated service to a remote Linux server using SSH, virtual environments, systemd, and Nginx.
 
 You are **expected to use LLMs**, but:
-- You must understand every line of code you commit.
-- You must run and test everything yourself.
-- You should ask LLMs for explanations and suggestions, not full solutions.
-- The TA may ask you to explain your solution.
 
-Work **independently**, but ask a classmate to review your PRs when required.
+- Run and test everything by yourself to check that it actually works.
+- Ask the LLM for explanations to understand what is happening.
+- Even better ask the LLM for directions on how to do each task instead of asking for a ready solution.
+- The TA may ask you to explain any part of your solution.
+
+As in the previous lab, you work on tasks **individually**, then ask a classmate to review your PRs and do the same for them.
 
 ---
 
 ## Story
 
-You have joined a backend team at a growing tech startup.  
-A small FastAPI service already exists. Your senior engineer gives you your first assignment:
+You were hired by a company that develops a novel Learning Management System like Moodle.
 
-> “Before we give you bigger features, you need to show you can:
-> 1) Run our service and verify it’s healthy (`/status`),  
-> 2) Investigate and fix a bug in the course material endpoints (`/items`),  
-> 3) Implement a missing Outcomes API (`/outcomes`) from a provided JSON file, and  
-> 4) Deploy your change to the server.”
+You have joined a backend team in that company.
 
-This is exactly how real onboarding works in many tech companies.
+Your team develops a read-only service called **Course Material Service**.
 
-Your goal is to behave like a junior engineer in a real team:
-follow processes, communicate through issues and PRs, and deliver a working deployment.
+The service is implemented using the FastAPI framework in Python.
 
-### System context (what you’re building)
+Currenty, it serves course-related items (labs and tasks).
 
-This repo contains a small read-only backend called **Course Material Service**:
-- Currentyl it serves course-related items (labs, modules, and tasks).
-- Later, you'll also add **learning outcomes**.
-- For simplicity, all data is JSON files in `src/app/data/`.
+For simplicity, the backend uses data ("resources") stored is JSON files in `src/app/data/`.
 
-In this lab, you will run the service, debug an existing endpoint, add missing API functionality, and deploy it to a VPS.
+A senior engineer explains your first assignment:
+
+> Before we give you bigger features, you need to show you can:
+>
+> 1) Run our backend service on your machine
+> 2) Verify it’s working: query the `/status` endpoint
+> 3) Investigate and fix a bug in the `/items` endpoint.
+> 4) Implement a missing `/outcomes` endpoint using the provided JSON resource.
+> 5) Deploy your updated service to a remote Linux server.
+>
+> You are expected to communicate through issues and PRs, and deliver a working deployment.
 
 ### Key entities (what the API serves)
 
-- `Item` — a generic node in the course tree.
-  - Has an `id` (unique string), a `type` (e.g. `course`, `lab`, `module`, `task`), and optional metadata (`titles`, `descriptions`, `values`, etc.).
-  - Can contain nested `items`, so the structure forms a **tree**.
-- `CourseMaterial` — the top-level document that wraps the course tree.
-  - Contains `items: List[Item]` (the top-level nodes; in this dataset it starts with a single `course` item).
+- Course tree example:
+
+  ```console
+  - [course] Software Engineering Toolkit
+    - [lab] Lab 1
+      - [tasks] Required tasks
+        - [task] Study architecture
+          - [step] Step 1
+          - [step] Step 2
+          ... (more steps here)
+        - [task] Research market
+          ... (more steps here)
+    - [lab] Lab 2
+      - [tasks] Tasks
+        - [task] Setup
+          ... (more steps here)
+        - [task] Run the service
+          ... (more steps here)
+  ```
+
+- `Item` is a generic node in the course tree. It has:
+  - an `id` (unique string)
+  - a `type` (e.g. `course`, `lab`, `tasks`, `task`, `step`)
+  - optional metadata (`titles`, `descriptions`, `values`, etc.).
+- An `Item` can contain nested `items`, so the structure forms a **tree**.
+- The tree can potentially be of arbitrary depth so that it lets represent deeply nested subtasks.
 
 ---
 
@@ -113,19 +137,25 @@ Create an issue:
 Steps:
 
 - [ ] Create a virtual environment:
+
   ```bash
   python3 -m venv venv
   source venv/bin/activate
   ```
+
 - [ ] Install dependencies:
+
   ```bash
   pip install -r requirements.txt
   ```
+
 - [ ] Run the service from `src/`:
+
   ```bash
   cd src
   uvicorn main:app --reload
   ```
+
 - [ ] Open the interactive API docs: `http://127.0.0.1:8000/docs`
 - [ ] Verify `/status` returns the correct JSON.
 - [ ] Verify `/items/course` returns a nested “course structure” JSON.
@@ -145,6 +175,7 @@ Use `http://127.0.0.1:8000/docs` and try:
 - `GET /items/{item_id}` — fetch any item by id (including nested ones)
 
 Tip:
+
 - Use `/items/course` when you need the full tree.
 - Use `/items` when you want a smaller response (top-level), or when you want to extract a specific `type` quickly.
 
@@ -178,9 +209,11 @@ Create an issue:
 Steps:
 
 - [ ] Create branch:
+
   ```bash
   git checkout -b fix/<bug-name>
   ```
+
 - [ ] Fix the bug in code.
 - [ ] Add or update a small test in `tests/`.
 - [ ] Push and open a PR.
@@ -245,9 +278,11 @@ Create an issue:
 Steps:
 
 - [ ] SSH into the server:
+
   ```bash
   ssh username@SERVER_IP
   ```
+
 - [ ] Show TA you can connect and navigate.
 
 ---
@@ -278,10 +313,13 @@ Create an issue:
 Steps:
 
 - [ ] Start (from `/var/www/myapp/src`):
+
   ```bash
   uvicorn main:app --host 0.0.0.0 --port 8001
   ```
+
 - [ ] In your browser, check:
+
   ```text
   http://SERVER_IP:8001/status
   ```
@@ -301,6 +339,7 @@ Steps:
 - [ ] Create `/etc/systemd/system/myapp.service`
 - [ ] Fill in the unit file for a FastAPI/Uvicorn service.
 - [ ] Enable and start:
+
   ```bash
   sudo systemctl daemon-reload
   sudo systemctl enable myapp
@@ -323,12 +362,15 @@ Steps:
 - [ ] Create `/etc/nginx/sites-available/myapp`
 - [ ] Add reverse proxy config to `localhost:8001`
 - [ ] Enable site:
+
   ```bash
   sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
   sudo nginx -t
   sudo systemctl reload nginx
   ```
+
 - [ ] Visit:
+
   ```text
   http://SERVER_IP/status
   ```
