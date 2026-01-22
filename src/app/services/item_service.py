@@ -3,37 +3,27 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from app.models.item import CourseMaterial, Item
+from app.models.item import Item
 
 DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "course_items.json"
 
 
-def _iter_items(items: List[Item]) -> Iterable[Item]:
-    for item in items:
-        yield item
-        nested_groups = [item.items]
-        for group in nested_groups:
-            if group:
-                yield from _iter_items(group)
-
+def _iter_item_tree(item: Item) -> Iterable[Item]:
+    yield item
+    if item.items:
+        for child in item.items:
+            yield from _iter_item_tree(child)
 
 @lru_cache
-def get_course_material() -> CourseMaterial:
+def get_course_item() -> Item:
     with open(DATA_PATH, "r", encoding="utf-8") as handle:
         raw = json.load(handle)
-    return CourseMaterial.model_validate(raw)
 
-
-def list_items(item_type: Optional[str] = None) -> List[Item]:
-    material = get_course_material()
-    if not item_type:
-        return material.items
-    return [item for item in material.items if item.type == item_type]
-
+    return Item.model_validate(raw)
 
 def find_item_by_id(item_id: str) -> Optional[Item]:
-    material = get_course_material()
-    for item in _iter_items(material.items):
+    course = get_course_item()
+    for item in _iter_item_tree(course):
         if item.id == item_id:
             return item
     return None
