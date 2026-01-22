@@ -21,8 +21,8 @@ def test_list_items():
 
     assert response.status_code == 200
     payload = response.json()
-    assert isinstance(payload, dict)
-    assert payload["id"] == "software_engineering_toolkit"
+    assert isinstance(payload, list)
+    assert payload[0]["id"] == "software_engineering_toolkit"
 
 
 def test_get_item_by_id():

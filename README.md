@@ -98,18 +98,10 @@ By the end of this lab, you should be able to:
 
 ---
 
-## How the lab works
+## Procedure for each task
 
-> [!TIP]
-> 
-
-1. **Fork** this repo to your `GitHub` account.
-2. Complete tasks in this `README.md`.
-3. For each task:
-   - Create/assign an **issue** using the appropriate template in `.github/ISSUE_TEMPLATE/`.
-   - Implement the task on a **newly created branch**.
-   - Open a **Pull Request** and request a review when required.
-4. After each task, show your progress to the TA who will check it off.
+See the [procedure for each task](https://github.com/inno-se-toolkit/lab-01-market-product-and-git#procedure-for-each-task) in the previous lab.
+The procedure is the same for this lab.
 
 ---
 

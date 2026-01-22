@@ -19,14 +19,14 @@ def get_course_items() -> List[Item]:
     with open(DATA_PATH, "r", encoding="utf-8") as handle:
         raw = json.load(handle)
 
-    return Item.model_validate(raw)
+    return [Item.model_validate(course) for course in raw]
 
 def find_item_by_id(item_id: str) -> Optional[Item]:
     courses = get_course_items()
     for course in courses:
-        if course.id == item_id:
+        if course.id == item_id or course.type == item_id:
             return course
-        
+
         for item in _iter_item_tree(course):
             if item.id == item_id:
                 return item
