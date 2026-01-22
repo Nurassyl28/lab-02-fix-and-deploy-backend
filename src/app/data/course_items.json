@@ -1,473 +1,372 @@
-{
-  "items": [
-    {
-      "id": "course",
-      "type": "course",
-      "titles": {
-        "en": "Software Engineering Toolkit (Labs 1–2)"
-      },
-      "descriptions": {
-        "en": "Course structure and deliverables for labs 1 and 2."
-	      },
-	      "items": [
-	        {
-	          "id": "lab-01",
-	          "type": "lab",
-	          "titles": {
-	            "en": "Lab 01 — Products, Architecture & Roles"
-	          },
-	          "descriptions": {
-	            "en": "Pick a real digital product, describe its architecture and deployment, map components to engineering roles and skills, and practice GitHub flow (issues, branches, PRs, reviews)."
-	          },
-	          "values": {
-	            "repo_dir": "lab-01-market-product-and-git",
-	            "repo_url": "https://github.com/inno-pre-swp/lab-01-market-product-and-git",
-	            "git_ref": "improve-lab",
-	            "readme_path": "lab-01-market-product-and-git/README.md"
-	          },
-	          "items": [
-	            {
-	              "id": "lab-01-setup",
-	              "type": "module",
-	              "titles": {
-	                "en": "Setup"
-	              },
-	              "descriptions": {
-	                "en": "Prepare your forked repository, collaboration, and local tooling."
-	              },
-	              "items": [
-	                {
-	                  "id": "lab-01-fork",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Set up a fork"
-	                  },
-	                  "descriptions": {
-	                    "en": "Create a GitHub account, fork the repo publicly, enable Issues, and (optionally) create a `task` label and protect `main`."
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-collaborator",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Add a classmate as a collaborator"
-	                  },
-	                  "descriptions": {
-	                    "en": "Invite a classmate to your repo and make sure they accept the invitation."
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-local-tools",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Set up local tools"
-	                  },
-	                  "descriptions": {
-	                    "en": "Configure `git`, install `VS Code`, and enable autosave and format-on-save."
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-clone-open",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Clone and open the repo"
-	                  },
-	                  "descriptions": {
-	                    "en": "Clone your fork locally and open it in `VS Code`."
-	                  },
-	                  "values": {
-	                    "command_hint": "git clone https://github.com/<your-username>/lab-01-market-product-and-git"
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-extensions",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Install recommended VS Code extensions"
-	                  },
-	                  "descriptions": {
-	                    "en": "Install the recommended extensions from `.vscode/extensions.json` and sign in where required."
-	                  }
-	                }
-	              ]
-	            },
-	            {
-	              "id": "lab-01-process",
-	              "type": "module",
-	              "titles": {
-	                "en": "Process (GitHub flow)"
-	              },
-	              "descriptions": {
-	                "en": "Organize work via issues and pull requests, keep changes reviewable, and collaborate through PR reviews."
-	              },
-	              "items": [
-	                {
-	                  "id": "lab-01-github-flow",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Follow GitHub flow for each task"
-	                  },
-	                  "descriptions": {
-	                    "en": "Create an issue, work on a branch, open a PR, link it to the issue (e.g. `Closes #...`), request review, merge, close the issue, and delete the branch."
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-pr-reviews",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Do PR reviews with a collaborator"
-	                  },
-	                  "descriptions": {
-	                    "en": "As a reviewer, leave at least 2 meaningful comments and approve when satisfied; as an author, reply to feedback and make the necessary changes."
-	                  }
-	                }
-	              ]
-	            },
-	            {
-	              "id": "lab-01-required",
-	              "type": "module",
-	              "titles": {
-	                "en": "Required tasks"
-	              },
-	              "descriptions": {
-	                "en": "Complete all required tasks in your fork and demonstrate progress to a TA."
-	              },
-	              "items": [
-	                {
-	                  "id": "lab-01-product-architecture",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Product & architecture description"
-	                  },
-	                  "descriptions": {
-	                    "en": "Pick a product, document main components, data flow, deployment, and knowledge gaps in `./docs/architecture.md` with embedded diagrams."
-	                  },
-	                  "values": {
-	                    "issue_title": "[Task] Product & architecture description",
-	                    "deliverable_path": "./docs/architecture.md"
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-roles-skills-mapping",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Roles and skills mapping"
-	                  },
-	                  "descriptions": {
-	                    "en": "Map product components to likely roles, describe responsibilities, and list common skills in `./docs/roles-and-skills.md`."
-	                  },
-	                  "values": {
-	                    "issue_title": "[Task] Roles and skills mapping",
-	                    "deliverable_path": "./docs/roles-and-skills.md"
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-roadmap-and-job-market",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Roadmap.sh and job market snapshot"
-	                  },
-	                  "descriptions": {
-	                    "en": "Choose a role, assess your skills using `roadmap.sh`, review 5–7 job postings, and write a short reflection in `./docs/roles-and-skills.md` (some parts must be written without an LLM)."
-	                  },
-	                  "values": {
-	                    "roadmap_url": "https://roadmap.sh/",
-	                    "deliverable_path": "./docs/roles-and-skills.md"
-	                  }
-	                }
-	              ]
-	            },
-	            {
-	              "id": "lab-01-optional",
-	              "type": "module",
-	              "titles": {
-	                "en": "Optional tasks (pick one)"
-	              },
-	              "descriptions": {
-	                "en": "Pick exactly one optional deep-dive task and still follow the same issue → branch → PR workflow."
-	              },
-	              "items": [
-	                {
-	                  "id": "lab-01-optional-merge-conflicts",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Merge conflicts & resolution"
-	                  },
-	                  "descriptions": {
-	                    "en": "Coordinate conflicting edits with a collaborator and resolve the conflict in a PR, including a short conflict-resolution note."
-	                  },
-	                  "values": {
-	                    "issue_title": "[Task] Deep dive: Merge conflicts",
-	                    "resource_url": "https://learngitbranching.js.org/"
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-optional-add-ci",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Add a CI check (GitHub Actions)"
-	                  },
-	                  "descriptions": {
-	                    "en": "Add a GitHub Actions workflow that runs `markdownlint` on every PR and verify checks pass."
-	                  },
-	                  "values": {
-	                    "issue_title": "[Task] Deep dive: Add CI",
-	                    "docs_url": "https://docs.github.com/en/actions/get-started/quickstart"
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-optional-tag-release",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Tag and release notes (shipping mindset)"
-	                  },
-	                  "descriptions": {
-	                    "en": "Create a `v0.1.0` tag and a GitHub Release with notes: what you built, what you learned, and what you would do next."
-	                  },
-	                  "values": {
-	                    "issue_title": "[Task] Deep dive: Tag and release",
-	                    "semver_url": "https://semver.org/"
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-optional-skill-strategy",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Skill development strategy"
-	                  },
-	                  "descriptions": {
-	                    "en": "Pick one skill from your job-market analysis and write a realistic plan and progress tracking in `./docs/skill-development-strategy.md`."
-	                  },
-	                  "values": {
-	                    "issue_title": "[Task] Skill development strategy",
-	                    "deliverable_path": "./docs/skill-development-strategy.md"
-	                  }
-	                }
-	              ]
-	            },
-	            {
-	              "id": "lab-01-homework",
-	              "type": "module",
-	              "titles": {
-	                "en": "Homework"
-	              },
-	              "descriptions": {
-	                "en": "Self-study to reinforce Git and GitHub workflows."
-	              },
-	              "items": [
-	                {
-	                  "id": "lab-01-hw-tutorial",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Read Git/GitHub tutorial"
-	                  },
-	                  "descriptions": {
-	                    "en": "Read the tutorial on Git, GitHub, and Git workflows."
-	                  },
-	                  "values": {
-	                    "url": "https://hackmd.io/@aabounegm/SWP-git"
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-hw-practice",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Practice on Learn Git Branching"
-	                  },
-	                  "descriptions": {
-	                    "en": "Practice merge/rebase and conflict resolution on the interactive tutorial."
-	                  },
-	                  "values": {
-	                    "url": "https://learngitbranching.js.org/"
-	                  }
-	                },
-	                {
-	                  "id": "lab-01-hw-github-flow",
-	                  "type": "task",
-	                  "titles": {
-	                    "en": "Read about GitHub flow"
-	                  },
-	                  "descriptions": {
-	                    "en": "Read the official documentation for the GitHub flow branching model."
-	                  },
-	                  "values": {
-	                    "url": "https://docs.github.com/en/get-started/using-github/github-flow"
-	                  }
-	                }
-	              ]
-	            }
-	          ]
-	        },
-	        {
-	          "id": "lab-02",
-	          "type": "lab",
-	          "titles": {
-	            "en": "Lab 02 — Understand, Improve, and Deploy a Backend Service"
-	          },
-          "descriptions": {
-            "en": "Run a FastAPI service locally, document and fix a bug with tests, add a small feature, then deploy to a Linux VPS using systemd and Nginx."
-          },
-          "values": {
-            "repo_dir": "lab-02-fix-and-deploy-backend",
-            "repo_url": "https://github.com/nurlingo/lab-02-fix-and-deploy-backend",
-            "git_ref": "main",
-            "readme_path": "lab-02-fix-and-deploy-backend/README.md",
-            "ta_checklist_path": "lab-02-fix-and-deploy-backend/TA_CHECKLIST.md",
-            "requirements_path": "lab-02-fix-and-deploy-backend/requirements.txt",
-            "app_entrypoint": "lab-02-fix-and-deploy-backend/src/main.py"
-          },
-          "items": [
-            {
-              "id": "lab-02-setup",
-              "type": "task",
-              "titles": {
-                "en": "Setup"
-              },
-              "descriptions": {
-                "en": "Ensure access, clone the repo, install Python 3.10+, and read the lab instructions."
-              },
-              "values": {
-                "issue_title": "[Task] Lab 02 setup"
-              }
+[{
+    "id": "software_engineering_toolkit",
+    "type": "course",
+    "titles": {
+        "en": "Software Engineering Toolkit"
+    },
+    "descriptions": {
+        "en": "Course material for Lab 02 (backend investigation, fixes, feature, deployment)."
+    },
+    "items": [
+        {
+            "id": "lab-02",
+            "type": "lab",
+            "titles": {
+                "en": "Lab 02 — Understand, Improve, and Deploy a Backend Service"
             },
-            {
-              "id": "lab-02-local-development",
-              "type": "module",
-              "titles": {
-                "en": "Local development"
-              },
-              "descriptions": {
-                "en": "Run and explore the service locally, document a bug, fix it with tests, and implement a small improvement."
-              },
-              "items": [
+            "descriptions": {
+                "en": "Run a FastAPI service, fix the /items endpoints, implement /outcomes, and deploy to a VPS."
+            },
+            "values": {
+                "repo_dir": "lab-02-fix-and-deploy-backend",
+                "readme_path": "README.md"
+            },
+            "items": [
                 {
-                  "id": "lab-02-run-local",
-                  "type": "task",
-                  "titles": {
-                    "en": "Run the backend locally"
-                  },
-                  "descriptions": {
-                    "en": "Create a virtualenv, install dependencies, run Uvicorn, and verify `/status`."
-                  },
-                  "values": {
-                    "issue_title": "[Task] Run the backend locally",
-                    "command": "cd src && uvicorn main:app --reload",
-                    "verify_endpoint": "/status"
-                  }
+                    "id": "lab-02-setup",
+                    "type": "task",
+                    "titles": {
+                        "en": "Lab setup"
+                    },
+                    "descriptions": {
+                        "en": "Prepare access and local tooling before coding."
+                    },
+                    "items": [
+                        {
+                            "id": "lab-02-setup-access",
+                            "type": "step",
+                            "titles": {
+                                "en": "Ensure repo access"
+                            },
+                            "descriptions": {
+                                "en": "Ensure the TA and at least one reviewer have access to your repo."
+                            }
+                        },
+                        {
+                            "id": "lab-02-setup-clone",
+                            "type": "step",
+                            "titles": {
+                                "en": "Clone the repository"
+                            },
+                            "descriptions": {
+                                "en": "Clone your fork locally."
+                            }
+                        },
+                        {
+                            "id": "lab-02-setup-python",
+                            "type": "step",
+                            "titles": {
+                                "en": "Check Python version"
+                            },
+                            "descriptions": {
+                                "en": "Ensure Python 3.10+ is installed."
+                            },
+                            "values": {
+                                "command_hint": "python3 --version"
+                            }
+                        },
+                        {
+                            "id": "lab-02-setup-readme",
+                            "type": "step",
+                            "titles": {
+                                "en": "Read the README"
+                            },
+                            "descriptions": {
+                                "en": "Read `README.md` once to understand the flow."
+                            }
+                        }
+                    ]
                 },
                 {
-                  "id": "lab-02-document-bug",
-                  "type": "task",
-                  "titles": {
-                    "en": "Document a bug"
-                  },
-                  "descriptions": {
-                    "en": "Create a bug issue with steps to reproduce, expected vs actual behavior, and logs/screenshots."
-                  },
-                  "values": {
-                    "issue_title": "[Bug] Unexpected behavior in <endpoint/function>"
-                  }
+                    "id": "lab-02-run-local",
+                    "type": "task",
+                    "titles": {
+                        "en": "Run the service locally"
+                    },
+                    "descriptions": {
+                        "en": "Create a venv, install deps, run Uvicorn, and verify endpoints."
+                    },
+                    "items": [
+                        {
+                            "id": "lab-02-run-local-venv",
+                            "type": "step",
+                            "titles": {
+                                "en": "Create a virtual environment"
+                            },
+                            "descriptions": {
+                                "en": "Create a venv named `venv`."
+                            },
+                            "values": {
+                                "command_hint": "python3 -m venv venv"
+                            }
+                        },
+                        {
+                            "id": "lab-02-run-local-activate",
+                            "type": "step",
+                            "titles": {
+                                "en": "Activate the virtual environment"
+                            },
+                            "descriptions": {
+                                "en": "Activate `venv`."
+                            },
+                            "values": {
+                                "command_hint": "source venv/bin/activate"
+                            }
+                        },
+                        {
+                            "id": "lab-02-run-local-install",
+                            "type": "step",
+                            "titles": {
+                                "en": "Install dependencies"
+                            },
+                            "descriptions": {
+                                "en": "Install dependencies from `requirements.txt`."
+                            },
+                            "values": {
+                                "command_hint": "pip install -r requirements.txt"
+                            }
+                        },
+                        {
+                            "id": "lab-02-run-local-uvicorn",
+                            "type": "step",
+                            "titles": {
+                                "en": "Run Uvicorn"
+                            },
+                            "descriptions": {
+                                "en": "Run the service from `src/`."
+                            },
+                            "values": {
+                                "command_hint": "cd src && uvicorn main:app --reload"
+                            }
+                        },
+                        {
+                            "id": "lab-02-run-local-status",
+                            "type": "step",
+                            "titles": {
+                                "en": "Verify /status"
+                            },
+                            "descriptions": {
+                                "en": "Verify the health endpoint returns OK JSON."
+                            },
+                            "values": {
+                                "command_hint": "curl http://127.0.0.1:8000/status",
+                                "expected_hint": "{\"status\":\"ok\",\"service\":\"course-material\"}"
+                            }
+                        },
+                        {
+                            "id": "lab-02-run-local-items",
+                            "type": "step",
+                            "titles": {
+                                "en": "Verify /items"
+                            },
+                            "descriptions": {
+                                "en": "Verify the items endpoints return the nested course structure."
+                            },
+                            "values": {
+                                "command_hint": "curl http://127.0.0.1:8000/items/course"
+                            }
+                        }
+                    ]
                 },
                 {
-                  "id": "lab-02-fix-bug",
-                  "type": "task",
-                  "titles": {
-                    "en": "Fix the bug (PR)"
-                  },
-                  "descriptions": {
-                    "en": "Fix the bug on a feature branch, add/update a test in `tests/`, open a PR, request review, and merge."
-                  },
-                  "values": {
-                    "branch_hint": "fix/<bug-name>"
-                  }
+                    "id": "lab-02-document-bug",
+                    "type": "task",
+                    "titles": {
+                        "en": "Document the /items bug"
+                    },
+                    "descriptions": {
+                        "en": "Investigate unexpected behavior and create a clear bug report."
+                    },
+                    "items": [
+                        {
+                            "id": "lab-02-document-bug-reproduce",
+                            "type": "step",
+                            "titles": {
+                                "en": "Reproduce the bug"
+                            },
+                            "descriptions": {
+                                "en": "Use the `/items` endpoints to reproduce the incorrect behavior and capture evidence."
+                            }
+                        },
+                        {
+                            "id": "lab-02-document-bug-expected-actual",
+                            "type": "step",
+                            "titles": {
+                                "en": "Write expected vs actual behavior"
+                            },
+                            "descriptions": {
+                                "en": "Describe what you expected and what you actually observed."
+                            }
+                        },
+                        {
+                            "id": "lab-02-document-bug-steps",
+                            "type": "step",
+                            "titles": {
+                                "en": "Add steps to reproduce"
+                            },
+                            "descriptions": {
+                                "en": "Add minimal steps so someone else can reproduce reliably."
+                            }
+                        }
+                    ]
                 },
                 {
-                  "id": "lab-02-feature",
-                  "type": "task",
-                  "titles": {
-                    "en": "Implement the Outcomes API"
-                  },
-                  "descriptions": {
-                    "en": "Implement `GET /outcomes` and `GET /outcomes/{outcome_id}` backed by `src/app/data/outcomes.json`, add tests, open a PR, request review, and merge."
-                  }
+                    "id": "lab-02-fix-items",
+                    "type": "task",
+                    "titles": {
+                        "en": "Fix the /items endpoint"
+                    },
+                    "descriptions": {
+                        "en": "Fix the bug, add/update a test, and deliver via PR."
+                    },
+                    "items": [
+                        {
+                            "id": "lab-02-fix-items-branch",
+                            "type": "step",
+                            "titles": {
+                                "en": "Create a fix branch"
+                            },
+                            "descriptions": {
+                                "en": "Create a branch like `fix/<bug-name>`."
+                            }
+                        },
+                        {
+                            "id": "lab-02-fix-items-implement",
+                            "type": "step",
+                            "titles": {
+                                "en": "Implement the fix"
+                            },
+                            "descriptions": {
+                                "en": "Make `/items` return the course item and `/items/{item_id}` return any nested item by id."
+                            }
+                        },
+                        {
+                            "id": "lab-02-fix-items-test",
+                            "type": "step",
+                            "titles": {
+                                "en": "Add/update tests"
+                            },
+                            "descriptions": {
+                                "en": "Add/update at least one test under `tests/` to cover the bug."
+                            }
+                        },
+                        {
+                            "id": "lab-02-fix-items-pr",
+                            "type": "step",
+                            "titles": {
+                                "en": "Open a PR"
+                            },
+                            "descriptions": {
+                                "en": "Open a PR, link it to the issue, request review, and merge when approved."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "lab-02-outcomes",
+                    "type": "task",
+                    "titles": {
+                        "en": "Implement the Outcomes API"
+                    },
+                    "descriptions": {
+                        "en": "Implement `GET /outcomes` and `GET /outcomes/{outcome_id}` backed by `outcomes.json`."
+                    },
+                    "items": [
+                        {
+                            "id": "lab-02-outcomes-implement",
+                            "type": "step",
+                            "titles": {
+                                "en": "Implement endpoints"
+                            },
+                            "descriptions": {
+                                "en": "Add `GET /outcomes` and `GET /outcomes/{outcome_id}`."
+                            }
+                        },
+                        {
+                            "id": "lab-02-outcomes-data",
+                            "type": "step",
+                            "titles": {
+                                "en": "Load outcomes.json"
+                            },
+                            "descriptions": {
+                                "en": "Use `src/app/data/outcomes.json` as the data source."
+                            }
+                        },
+                        {
+                            "id": "lab-02-outcomes-tests",
+                            "type": "step",
+                            "titles": {
+                                "en": "Add tests"
+                            },
+                            "descriptions": {
+                                "en": "Add tests under `tests/` for the new endpoints."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "lab-02-deploy",
+                    "type": "task",
+                    "titles": {
+                        "en": "Deploy to a VPS"
+                    },
+                    "descriptions": {
+                        "en": "Deploy the updated service to a Linux server using SSH, venv, systemd, and Nginx."
+                    },
+                    "items": [
+                        {
+                            "id": "lab-02-deploy-connect",
+                            "type": "step",
+                            "titles": {
+                                "en": "Connect to VPS"
+                            },
+                            "descriptions": {
+                                "en": "SSH into the server and verify you can connect and navigate."
+                            }
+                        },
+                        {
+                            "id": "lab-02-deploy-prepare",
+                            "type": "step",
+                            "titles": {
+                                "en": "Prepare environment"
+                            },
+                            "descriptions": {
+                                "en": "Upload code, create a venv, and install requirements."
+                            }
+                        },
+                        {
+                            "id": "lab-02-deploy-run",
+                            "type": "step",
+                            "titles": {
+                                "en": "Run the app manually"
+                            },
+                            "descriptions": {
+                                "en": "Run Uvicorn on `0.0.0.0:8001` and verify `/status`."
+                            }
+                        },
+                        {
+                            "id": "lab-02-deploy-systemd",
+                            "type": "step",
+                            "titles": {
+                                "en": "Create a systemd service"
+                            },
+                            "descriptions": {
+                                "en": "Create a systemd unit, enable/start it, and verify it stays running."
+                            }
+                        },
+                        {
+                            "id": "lab-02-deploy-nginx",
+                            "type": "step",
+                            "titles": {
+                                "en": "Configure Nginx reverse proxy"
+                            },
+                            "descriptions": {
+                                "en": "Configure Nginx to reverse proxy to the app and verify `http://SERVER_IP/status`."
+                            }
+                        }
+                    ]
                 }
-              ]
-            },
-            {
-              "id": "lab-02-deployment",
-              "type": "module",
-              "titles": {
-                "en": "Remote deployment (Linux VPS)"
-              },
-              "descriptions": {
-                "en": "Deploy the updated service to a Linux server using SSH, virtualenv, systemd, and Nginx."
-              },
-              "items": [
-                {
-                  "id": "lab-02-connect-vps",
-                  "type": "task",
-                  "titles": {
-                    "en": "Connect to VPS"
-                  },
-                  "descriptions": {
-                    "en": "SSH into the server and verify you can connect and navigate."
-                  }
-                },
-                {
-                  "id": "lab-02-prepare-vps",
-                  "type": "task",
-                  "titles": {
-                    "en": "Prepare VPS environment"
-                  },
-                  "descriptions": {
-                    "en": "Create `/var/www/myapp/`, upload code, create a virtualenv, and install requirements."
-                  }
-                },
-                {
-                  "id": "lab-02-run-vps",
-                  "type": "task",
-                  "titles": {
-                    "en": "Run the app manually on VPS"
-                  },
-                  "descriptions": {
-                    "en": "Run Uvicorn on `0.0.0.0:8001` and verify `http://SERVER_IP:8001/status`."
-                  }
-                },
-                {
-                  "id": "lab-02-systemd",
-                  "type": "task",
-                  "titles": {
-                    "en": "Create a systemd service"
-                  },
-                  "descriptions": {
-                    "en": "Create a systemd unit, enable/start it, and verify it stays running."
-                  }
-                },
-                {
-                  "id": "lab-02-nginx",
-                  "type": "task",
-                  "titles": {
-                    "en": "Configure Nginx reverse proxy"
-                  },
-                  "descriptions": {
-                    "en": "Configure Nginx to reverse proxy to the app and verify `http://SERVER_IP/status`."
-                  }
-                }
-              ]
-            },
-            {
-              "id": "lab-02-stretch",
-              "type": "module",
-              "titles": {
-                "en": "Stretch tasks (optional)"
-              },
-              "descriptions": {
-                "en": "Optional improvements like a `/version` endpoint, structured logging, or deployment scripts."
-              }
-            }
-          ]
+            ]
         }
-      ]
-    }
-  ]
-}
+    ]
+}]

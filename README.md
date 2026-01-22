@@ -32,7 +32,7 @@ The service is implemented using the FastAPI framework in Python.
 
 Currenty, it serves course-related items (labs and tasks).
 
-For simplicity, the backend uses data ("resources") stored is JSON files in `src/app/data/`.
+For simplicity, the backend uses data stored is JSON files ("JSON resources") in `src/app/data/`.
 
 A senior engineer explains your first assignment:
 
@@ -48,7 +48,9 @@ A senior engineer explains your first assignment:
 
 ### Key entities (what the API serves)
 
-- Course tree example:
+#### Course items (`/items` endpoint)
+
+- A course tree consists of `Item`s (described below). Example of a course tree with item types:
 
   ```console
   - [course] Software Engineering Toolkit
@@ -66,6 +68,9 @@ A senior engineer explains your first assignment:
           ... (more steps here)
         - [task] Run the service
           ... (more steps here)
+  - [Course] MA I
+   - [lab] Lab 1
+   ... (more labs here)
   ```
 
 - `Item` is a generic node in the course tree. It has:
@@ -73,11 +78,15 @@ A senior engineer explains your first assignment:
   - a `type` (e.g. `course`, `lab`, `tasks`, `task`, `step`)
   - optional metadata (`titles`, `descriptions`, `values`, etc.).
 - An `Item` can contain nested `items`, so the structure forms a **tree**.
-- The tree can potentially be of arbitrary depth so that it lets represent deeply nested subtasks.
+- The tree can potentially be of arbitrary depth so that it lets represent deeply nested tasks and steps.
+
+#### Learning outcomes (`/outcomes` endpoint)
+
+Outcomes are knowledge and skills that a student is expected to acquire as a result of completing a lab.
 
 ---
 
-## Learning outcomes
+## Learning outcomes for this lab
 
 By the end of this lab, you should be able to:
 
@@ -91,13 +100,16 @@ By the end of this lab, you should be able to:
 
 ## How the lab works
 
-1. **Fork** this repo to your account.
-2. Complete tasks in this README.
+> [!TIP]
+> 
+
+1. **Fork** this repo to your `GitHub` account.
+2. Complete tasks in this `README.md`.
 3. For each task:
    - Create/assign an **issue** using the appropriate template in `.github/ISSUE_TEMPLATE/`.
    - Implement the task on a **newly created branch**.
-   - Open a **Pull Request** and request review when required.
-4. After each task, show your progress to the TA, who will check it off.
+   - Open a **Pull Request** and request a review when required.
+4. After each task, show your progress to the TA who will check it off.
 
 ---
 

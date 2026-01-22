@@ -1,14 +1,15 @@
-from fastapi import APIRouter, HTTPException, Query
+from typing import List
+from fastapi import APIRouter, HTTPException
 
 from app.models.item import Item
-from app.services.item_service import find_item_by_id, get_course_item, list_items
+from app.services.item_service import find_item_by_id, get_course_items
 
 router = APIRouter()
 
 
-@router.get("/course", response_model=Item)
-def get_course():
-    return get_course_item()
+@router.get("", response_model=List[Item])
+def get_all_courses():
+    return get_course_items()
 
 
 @router.get("/{item_id}", response_model=Item)
