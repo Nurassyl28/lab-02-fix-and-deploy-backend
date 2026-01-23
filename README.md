@@ -162,10 +162,18 @@ Steps:
 
 - [ ] Open the interactive API docs: `http://127.0.0.1:8000/docs`
 - [ ] Verify `/status` returns the correct JSON.
-- [ ] Verify `/items/course` returns a nested “course structure” JSON.
+- [ ] Verify `/items/course` returns a nested "course structure" JSON.
+- [ ] Run the tests to check the health of the codebase:
+
+  ```bash
+  cd src
+  PYTHONPATH=. pytest ../tests -v
+  ```
+
+- [ ] Notice that **one test fails**. This indicates a bug in the code that you will investigate and fix later.
 - [ ] Document any unclear parts of the code in the issue.
 
-TA checks: “Local app running successfully.”
+TA checks: "Local app running successfully, tests executed."
 
 ---
 
@@ -174,14 +182,9 @@ TA checks: “Local app running successfully.”
 Use `http://127.0.0.1:8000/docs` and try:
 
 - `GET /status` — health check
-- `GET /items/course` — full nested course structure
-- `GET /items` — list items (by default: top-level; with `?type=...`: items of that type across the full nested structure)
+- `GET /items` — list all courses
+- `GET /items/course` — get the course item (by type)
 - `GET /items/{item_id}` — fetch any item by id (including nested ones)
-
-Tip:
-
-- Use `/items/course` when you need the full tree.
-- Use `/items` when you want a smaller response (top-level), or when you want to extract a specific `type` quickly.
 
 ### 2. Document the bug using the bug issue template
 
@@ -191,12 +194,15 @@ Create a **bug issue** using the template:
 
 Steps:
 
-- [ ] Focus your search on the `/items` endpoints (course structure + listing/filtering).
-- [ ] Use `/items/course` to understand what items exist, then try listing with filters like `GET /items?type=lab` or `GET /items?type=task`.
-- [ ] Describe the incorrect behavior.
-- [ ] Add steps to reproduce it.
-- [ ] Explain expected vs actual behavior.
-- [ ] Add any screenshots or error logs.
+- [ ] Start from the **failing test** you discovered in the previous task.
+- [ ] Read the test code in `tests/test_items.py` to understand what it expects.
+- [ ] Try the failing endpoint manually via the API docs to confirm the bug.
+- [ ] Investigate the relevant code in `src/app/` to understand what's going wrong.
+- [ ] In the bug issue:
+  - [ ] Describe the incorrect behavior.
+  - [ ] Add steps to reproduce it.
+  - [ ] Explain expected vs actual behavior.
+  - [ ] Add any screenshots or error logs.
 
 This step is critical: documenting bugs is a core engineering skill.
 
@@ -219,7 +225,14 @@ Steps:
   ```
 
 - [ ] Fix the bug in code.
-- [ ] Add or update a small test in `tests/`.
+- [ ] Run the tests again to verify the fix:
+
+  ```bash
+  cd src
+  PYTHONPATH=. pytest ../tests -v
+  ```
+
+- [ ] All tests should now pass.
 - [ ] Push and open a PR.
 - [ ] In the PR description: `Closes #<bug-issue-number>`
 - [ ] Request a review from a classmate.
