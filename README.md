@@ -30,7 +30,7 @@ Your team develops a read-only service called **Course Material Service**.
 
 The service is implemented using the FastAPI framework in Python.
 
-Currenty, it serves course-related items (labs and tasks).
+Currently, it serves course-related items (labs and tasks).
 
 For simplicity, the backend uses data stored is JSON files ("JSON resources") in `src/app/data/`.
 
@@ -184,6 +184,7 @@ Use `http://127.0.0.1:8000/docs` and try:
 - `GET /status` — health check
 - `GET /items` — list all courses
 - `GET /items/{item_id}` — fetch any item by id (searches the entire tree)
+- `GET /items/course` — shortcut to get the root course item (by type)
 
 ### 2. Document the bug using the bug issue template
 
@@ -266,7 +267,7 @@ Your job is to implement an Outcomes API so the frontend (and other services) ca
 
 Implementation guidance (you decide the exact structure, but keep it clean):
 
-- Add models in `src/app/models/` (similar style to `Item`/`CourseMaterial`)
+- Add models in `src/app/models/` (similar style to `Item`)
 - Add a service in `src/app/services/` that loads JSON and supports lookup by id
 - Add a router in `src/app/routers/` and register it in `src/main.py`
 

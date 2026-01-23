@@ -52,9 +52,11 @@ def find_item_by_id(item_id: str) -> Optional[Item]:
     """
     courses = get_course_items()
     for course in courses:
-        if course.id == item_id:
+        # Check if looking for this course by id or type
+        if course.id == item_id or course.type == item_id:
             return course
 
+        # Search nested items by id
         for item in _iter_item_tree(course):
             if item.type == item_id:
                 return item
