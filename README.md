@@ -183,8 +183,7 @@ Use `http://127.0.0.1:8000/docs` and try:
 
 - `GET /status` — health check
 - `GET /items` — list all courses
-- `GET /items/course` — get the course item (by type)
-- `GET /items/{item_id}` — fetch any item by id (including nested ones)
+- `GET /items/{item_id}` — fetch any item by id (searches the entire tree)
 
 ### 2. Document the bug using the bug issue template
 
