@@ -3,9 +3,9 @@ from fastapi.testclient import TestClient
 from main import app
 
 
-def test_get_course_material():
+def test_get_course_by_id():
     client = TestClient(app)
-    response = client.get("/items/course")
+    response = client.get("/items/software_engineering_toolkit")
 
     assert response.status_code == 200
     payload = response.json()
