@@ -162,7 +162,7 @@ Steps:
 
 - [ ] Open the interactive API docs: `http://127.0.0.1:8000/docs`
 - [ ] Verify `/status` returns the correct JSON.
-- [ ] Verify `/items/course` returns a nested "course structure" JSON.
+- [ ] Verify `GET /items` returns a list with the course structure.
 - [ ] Run the tests to check the health of the codebase:
 
   ```bash
@@ -184,7 +184,8 @@ Use `http://127.0.0.1:8000/docs` and try:
 - `GET /status` — health check
 - `GET /items` — list all courses
 - `GET /items/{item_id}` — fetch any item by id (searches the entire tree)
-- `GET /items/course` — shortcut to get the root course item (by type)
+
+Example: `GET /items/software_engineering_toolkit` returns the root course.
 
 ### 2. Document the bug using the bug issue template
 
