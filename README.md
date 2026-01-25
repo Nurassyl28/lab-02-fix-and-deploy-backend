@@ -6,7 +6,7 @@ In this lab, you will:
 
 - Run and explore an existing FastAPI codebase.
 - Document and fix a bug using the bug issue template.
-- Deploy the fixed service to a remote Linux server.
+- Deploy the fixed service to a remote Linux server using Docker Compose (FastAPI + Nginx).
 
 You are **expected to use LLMs**, but:
 
@@ -40,7 +40,7 @@ A senior engineer explains your first assignment:
 > 1) Run our backend service on your machine
 > 2) Verify it’s working: query the `/status` endpoint
 > 3) Investigate and fix a bug in the `/items` endpoint.
-> 4) Deploy your updated service to a remote Linux server.
+> 4) Deploy your updated service to a remote Linux server using Docker Compose.
 >
 > You are expected to communicate through issues and PRs, and deliver a working deployment.
 
@@ -53,7 +53,7 @@ By the end of this lab, you should be able to:
 - Run and modify an existing backend service locally.
 - Identify and document a bug in an existing codebase.
 - Apply the Git workflow (issues → branches → PRs → review) without guidance.
-- Deploy a Python backend to a Linux VPS using systemd and Nginx.
+- Deploy a Python backend to a Linux VPS using Docker Compose and Nginx.
 - Verify that the deployed service is running and reachable externally.
 
 ---
@@ -105,6 +105,9 @@ See the details in [Procedure for each task](https://github.com/inno-se-toolkit/
 
 ## Tasks
 
+Create and keep updating `docs/lab-02-proof.md` as you work (commands, outputs, screenshots).
+The TA (and the autochecker) will use it for quick verification.
+
 ## PART 1 — Local development
 
 ### Task 1. Run the service locally
@@ -119,25 +122,31 @@ Steps:
 
 TODO: add link to how to install Python.
 
+- [ ] Install `uv` (Python package manager).
+
+  ```bash
+  # macOS (Homebrew)
+  brew install uv
+  ```
+
 - [ ] Create a virtual environment:
 
   ```bash
-  python3 -m venv venv
+  uv venv venv
   source venv/bin/activate
   ```
 
 - [ ] Install dependencies:
 
-TODO: replace with UV.
   ```bash
-  pip install -r requirements.txt
+  uv pip install -r requirements.txt
   ```
 
 - [ ] Run the service from `src/`:
 
   ```bash
   cd src
-  uvicorn main:app --reload
+  uv run uvicorn main:app --reload
   ```
 
 - [ ] Open the interactive API docs: `http://127.0.0.1:8000/docs`
@@ -147,7 +156,7 @@ TODO: replace with UV.
 
   ```bash
   cd src
-  PYTHONPATH=. pytest ../tests -v
+  PYTHONPATH=. uv run pytest ../tests -v
   ```
 
 - [ ] Notice that **one test fails**. This indicates a bug in the code that you will investigate and fix later.
@@ -240,7 +249,7 @@ Steps:
 
   ```bash
   cd src
-  PYTHONPATH=. pytest ../tests -v
+  PYTHONPATH=. uv run pytest ../tests -v
   ```
 
 - [ ] All tests should now pass.
@@ -255,7 +264,7 @@ TA checks the merged PR.
 ---
 
 
-## PART 2 — Remote deployment (Linux VPS)
+## PART 2 — Remote deployment (Linux VPS, Docker Compose)
 
 ### Task 4. Connect to the server
 
@@ -283,87 +292,85 @@ Create an issue:
 
 Steps:
 
-- [ ] Create directory `/var/www/myapp/`
+- [ ] Install Docker Engine + Docker Compose plugin on the server.
+- [ ] Create directory `/var/www/myapp/`.
 - [ ] Upload project files (via `scp`, `rsync`, or Git pull).
-- [ ] Create and activate virtualenv on server.
-- [ ] Install requirements.
+- [ ] Ensure port `80/tcp` is open (firewall / security group).
 
-TA checks folder structure + venv.
+TA checks Docker is installed and the repo is on the server.
 
 ---
 
-### Task 6. Run the app manually on the server
+### Task 6. Run the app via Docker Compose
 
 Create an issue:
 
-- `[Task] Run app manually on VPS`
+- `[Task] Run app on VPS (Compose)`
 
 Steps:
 
-- [ ] Start (from `/var/www/myapp/src`):
+- [ ] Start (from `/var/www/myapp/`):
 
   ```bash
-  uvicorn main:app --host 0.0.0.0 --port 8001
+  docker compose up -d --build
+  ```
+
+- [ ] Check containers are running:
+
+  ```bash
+  docker compose ps
   ```
 
 - [ ] In your browser, check:
 
   ```text
-  http://SERVER_IP:8001/status
+  http://SERVER_IP/status
   ```
 
 TA checks the working endpoint.
 
 ---
 
-### Task 7. Create a systemd service
+### Task 7. Validate Nginx configuration (Compose)
 
 Create an issue:
 
-- `[Task] Create systemd service`
+- `[Task] Validate Nginx reverse proxy (Compose)`
 
 Steps:
 
-- [ ] Create `/etc/systemd/system/myapp.service`
-- [ ] Fill in the unit file for a FastAPI/Uvicorn service.
-- [ ] Enable and start:
+- [ ] Validate the Nginx config inside the container:
 
   ```bash
-  sudo systemctl daemon-reload
-  sudo systemctl enable myapp
-  sudo systemctl start myapp
-  sudo systemctl status myapp
+  docker compose exec nginx nginx -t
   ```
 
-TA checks service running.
+TA checks config test output.
 
 ---
 
-### Task 8. Configure Nginx reverse proxy
+### Task 8. Debug deployment (logs + restart)
 
 Create an issue:
 
-- `[Task] Configure Nginx reverse proxy`
+- `[Task] Debug deployment (Compose)`
 
 Steps:
 
-- [ ] Create `/etc/nginx/sites-available/myapp`
-- [ ] Add reverse proxy config to `localhost:8001`
-- [ ] Enable site:
+- [ ] Inspect logs:
 
   ```bash
-  sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
-  sudo nginx -t
-  sudo systemctl reload nginx
+  docker compose logs --tail=200 app
+  docker compose logs --tail=200 nginx
   ```
 
-- [ ] Visit:
+- [ ] Restart containers if needed:
 
-  ```text
-  http://SERVER_IP/status
+  ```bash
+  docker compose restart
   ```
 
-TA checks the web response.
+TA checks you can diagnose issues using logs.
 
 ---
 
@@ -415,7 +422,7 @@ TA checks the merged PR, that the new endpoint serves the correct data, tests ar
 ---
 
 ### Task 11. TODO: make the task proper.
-- Add a systemd restart policy or environment variable support.
+- Add an environment variable and wire it into `docker-compose.yml` or `nginx/default.conf`.
 
 ### Task 12. TODO: add a task to update docker compose in some smart way.
 
@@ -427,3 +434,4 @@ TA checks the merged PR, that the new endpoint serves the correct data, tests ar
 - `src/` — the FastAPI codebase you will run and modify.
 - `tests/` — unit tests for the service.
 - `requirements.txt` — Python dependencies.
+- `Dockerfile`, `docker-compose.yml`, `nginx/` — Docker-based deployment.

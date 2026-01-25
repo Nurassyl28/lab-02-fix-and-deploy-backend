@@ -83,23 +83,23 @@
                     "titles": {
                         "en": "Run the service locally"
                     },
-                    "descriptions": {
-                        "en": "Create a venv, install deps, run Uvicorn, and verify endpoints."
-                    },
-                    "items": [
-                        {
-                            "id": "lab-02-run-local-venv",
+	                    "descriptions": {
+	                        "en": "Create a venv, install deps with uv, run the service, and verify endpoints."
+	                    },
+	                    "items": [
+	                        {
+	                            "id": "lab-02-run-local-venv",
                             "type": "step",
                             "titles": {
                                 "en": "Create a virtual environment"
                             },
                             "descriptions": {
                                 "en": "Create a venv named `venv`."
-                            },
-                            "values": {
-                                "command_hint": "python3 -m venv venv"
-                            }
-                        },
+	                            },
+	                            "values": {
+	                                "command_hint": "uv venv venv"
+	                            }
+	                        },
                         {
                             "id": "lab-02-run-local-activate",
                             "type": "step",
@@ -121,24 +121,24 @@
                             },
                             "descriptions": {
                                 "en": "Install dependencies from `requirements.txt`."
-                            },
-                            "values": {
-                                "command_hint": "pip install -r requirements.txt"
-                            }
-                        },
-                        {
-                            "id": "lab-02-run-local-uvicorn",
-                            "type": "step",
-                            "titles": {
-                                "en": "Run Uvicorn"
-                            },
-                            "descriptions": {
-                                "en": "Run the service from `src/`."
-                            },
-                            "values": {
-                                "command_hint": "cd src && uvicorn main:app --reload"
-                            }
-                        },
+	                            },
+	                            "values": {
+	                                "command_hint": "uv pip install -r requirements.txt"
+	                            }
+	                        },
+	                        {
+	                            "id": "lab-02-run-local-uvicorn",
+	                            "type": "step",
+	                            "titles": {
+	                                "en": "Run the service"
+	                            },
+	                            "descriptions": {
+	                                "en": "Run the service from `src/`."
+	                            },
+	                            "values": {
+	                                "command_hint": "cd src && uv run uvicorn main:app --reload"
+	                            }
+	                        },
                         {
                             "id": "lab-02-run-local-status",
                             "type": "step",
@@ -161,13 +161,13 @@
                             },
                             "descriptions": {
                                 "en": "Verify the items endpoints return the nested course structure."
-                            },
-                            "values": {
-                                "command_hint": "curl http://127.0.0.1:8000/items/course"
-                            }
-                        }
-                    ]
-                },
+	                            },
+	                            "values": {
+	                                "command_hint": "curl http://127.0.0.1:8000/items"
+	                            }
+	                        }
+	                    ]
+	                },
                 {
                     "id": "lab-02-document-bug",
                     "type": "task",
@@ -309,11 +309,11 @@
                     "type": "task",
                     "titles": {
                         "en": "Deploy to a VPS"
-                    },
-                    "descriptions": {
-                        "en": "Deploy the updated service to a Linux server using SSH, venv, systemd, and Nginx."
-                    },
-                    "items": [
+	                    },
+	                    "descriptions": {
+	                        "en": "Deploy the updated service to a Linux server using SSH and Docker Compose (FastAPI + Nginx)."
+	                    },
+	                    "items": [
                         {
                             "id": "lab-02-deploy-connect",
                             "type": "step",
@@ -324,48 +324,60 @@
                                 "en": "SSH into the server and verify you can connect and navigate."
                             }
                         },
-                        {
-                            "id": "lab-02-deploy-prepare",
-                            "type": "step",
-                            "titles": {
-                                "en": "Prepare environment"
-                            },
-                            "descriptions": {
-                                "en": "Upload code, create a venv, and install requirements."
-                            }
-                        },
-                        {
-                            "id": "lab-02-deploy-run",
-                            "type": "step",
-                            "titles": {
-                                "en": "Run the app manually"
-                            },
-                            "descriptions": {
-                                "en": "Run Uvicorn on `0.0.0.0:8001` and verify `/status`."
-                            }
-                        },
-                        {
-                            "id": "lab-02-deploy-systemd",
-                            "type": "step",
-                            "titles": {
-                                "en": "Create a systemd service"
-                            },
-                            "descriptions": {
-                                "en": "Create a systemd unit, enable/start it, and verify it stays running."
-                            }
-                        },
-                        {
-                            "id": "lab-02-deploy-nginx",
-                            "type": "step",
-                            "titles": {
-                                "en": "Configure Nginx reverse proxy"
-                            },
-                            "descriptions": {
-                                "en": "Configure Nginx to reverse proxy to the app and verify `http://SERVER_IP/status`."
-                            }
-                        }
-                    ]
-                }
+	                        {
+	                            "id": "lab-02-deploy-prepare",
+	                            "type": "step",
+	                            "titles": {
+	                                "en": "Prepare environment"
+	                            },
+	                            "descriptions": {
+	                                "en": "Install Docker + Compose, upload code, and ensure port 80 is open."
+	                            },
+	                            "values": {
+	                                "command_hint": "cd /var/www/myapp && docker compose version"
+	                            }
+	                        },
+	                        {
+	                            "id": "lab-02-deploy-run",
+	                            "type": "step",
+	                            "titles": {
+	                                "en": "Run the app (Compose)"
+	                            },
+	                            "descriptions": {
+	                                "en": "Run Docker Compose and verify `http://SERVER_IP/status`."
+	                            },
+	                            "values": {
+	                                "command_hint": "cd /var/www/myapp && docker compose up -d --build"
+	                            }
+	                        },
+	                        {
+	                            "id": "lab-02-deploy-systemd",
+	                            "type": "step",
+	                            "titles": {
+	                                "en": "Validate Nginx config (Compose)"
+	                            },
+	                            "descriptions": {
+	                                "en": "Validate the Nginx config inside the container."
+	                            },
+	                            "values": {
+	                                "command_hint": "cd /var/www/myapp && docker compose exec nginx nginx -t"
+	                            }
+	                        },
+	                        {
+	                            "id": "lab-02-deploy-nginx",
+	                            "type": "step",
+	                            "titles": {
+	                                "en": "Debug deployment (Compose)"
+	                            },
+	                            "descriptions": {
+	                                "en": "Use `docker compose ps` and logs to debug if something doesn't work."
+	                            },
+	                            "values": {
+	                                "command_hint": "cd /var/www/myapp && docker compose logs --tail=200 nginx"
+	                            }
+	                        }
+	                    ]
+	                }
             ]
         }
     ]

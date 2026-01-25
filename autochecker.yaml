@@ -69,7 +69,7 @@ checks:
         local_status:
           pattern: "127\\.0\\.0\\.1:8000/status"
         items_course:
-          pattern: "/items/course"
+          pattern: "/items/software_engineering_toolkit"
 
   - id: proof_bug_notes
     title: "Bug investigation notes present"
@@ -84,7 +84,7 @@ checks:
       pattern: "(?i)bug|unexpected|expected|actual|investigat"
 
   - id: proof_systemd
-    title: "systemd service evidence present"
+    title: "docker compose deployment evidence present"
     class: structural
     runner: code
     type: regex_in_file
@@ -93,7 +93,7 @@ checks:
     depends_on: [proof_file_nonempty]
     params:
       path: "docs/lab-02-proof.md"
-      pattern: "systemctl\\s+status\\s+myapp"
+      pattern: "(docker\\s+compose|docker-compose)\\s+up"
 
   - id: proof_nginx
     title: "nginx configuration test evidence present"
@@ -234,7 +234,7 @@ checks:
       expect_status: 200
 
   - id: prod_items_ok
-    title: "Production /items/course endpoint works"
+    title: "Production /items/{id} endpoint works"
     class: execution
     runner: code
     type: http_check
@@ -242,7 +242,7 @@ checks:
     weight: 5
     params:
       runtime: prod
-      path: "/items/course"
+      path: "/items/software_engineering_toolkit"
       expect_status: 200
 
   - id: prod_outcomes_ok
