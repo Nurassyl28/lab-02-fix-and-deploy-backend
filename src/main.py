@@ -5,7 +5,7 @@ from JSON data files.
 """
 
 from fastapi import FastAPI
-from app.routers import items, status
+from app.routers import items, status, outcomes
 
 app = FastAPI(
     title="Course Material Service",
@@ -15,3 +15,4 @@ app = FastAPI(
 
 app.include_router(status.router, tags=["status"])
 app.include_router(items.router, prefix="/items", tags=["items"])
+app.include_router(outcomes.router, prefix="/outcomes", tags=["outcomes"])
