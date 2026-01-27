@@ -63,3 +63,10 @@ app-1  | INFO:     Uvicorn running on http://0.0.0.0:8000
 nginx-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
 ```
 
+
+## Stretch Goal: Task 10 (Outcomes API + HTTPS)
+
+- Implementation: Added `src/app/models/outcome.py`, `service`, `router`.
+- Tests: `tests/test_outcomes.py` passed.
+- Deployment: Replaced Nginx with **Caddy** for automatic HTTPS.
+- HTTPS Verification: Application is accessible at `https://46.224.249.95.nip.io/docs`.
