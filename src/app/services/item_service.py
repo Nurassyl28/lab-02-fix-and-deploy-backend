@@ -56,6 +56,6 @@ def find_item_by_id(item_id: str) -> Optional[Item]:
             return course
 
         for item in _iter_item_tree(course):
-            if item.type == item_id:
+            if item.id == item_id:
                 return item
     return None
