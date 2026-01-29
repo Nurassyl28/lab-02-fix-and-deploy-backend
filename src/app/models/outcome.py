@@ -10,5 +10,6 @@ class Outcome(BaseModel):
     coverage_notes: Optional[Dict[str, str]] = None
     suboutcomes: Optional[List["Outcome"]] = None
 
+
     class Config:
         populate_by_name = True
