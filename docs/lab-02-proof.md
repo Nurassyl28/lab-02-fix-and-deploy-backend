@@ -73,3 +73,7 @@ nginx-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
 
 - HTTPS Verification: Application is accessible at `https://46.224.249.95.nip.io/docs`.
 - Deployment method: Used `docker compose up -d` which serves as our systemd service evidence equivalent for this containerized deployment.
+
+```bash
+docker compose up -d
+```
