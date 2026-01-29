@@ -4,9 +4,10 @@ Use this file to collect evidence for TA checks (commands you ran + outputs / sc
 
 ## Local run
 
-- Status endpoint: `GET /status` returns `{"status": "ok"}`
-- Items endpoint: `GET /items/lab-02-run-local` originally returned 404.
+- Status endpoint: Checked `http://127.0.0.1:8000/status`, returns `{"status": "ok"}`.
+- Items endpoint: Checked `/items/software_engineering_toolkit` and `/items/lab-02-run-local`.
 - Failing test output:
+
 
 ```
 tests/test_items.py::test_get_item_by_id FAILED
