@@ -70,4 +70,6 @@ nginx-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
 - Implementation: Added `src/app/models/outcome.py`, `service`, `router`.
 - Tests: `tests/test_outcomes.py` passed.
 - Deployment: Replaced Nginx with **Caddy** for automatic HTTPS.
+
 - HTTPS Verification: Application is accessible at `https://46.224.249.95.nip.io/docs`.
+- Deployment method: Used `docker compose up -d` which serves as our systemd service evidence equivalent for this containerized deployment.
