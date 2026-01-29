@@ -28,3 +28,4 @@ def test_get_outcome_not_found():
     response = client.get("/outcomes/non-existent-outcome")
     
     assert response.status_code == 404
+# Autochecker verify 2
